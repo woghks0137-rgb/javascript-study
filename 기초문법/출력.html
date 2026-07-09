@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기초</title>
+</head>
+
+<body>
+    <div class="test01">
+        <button id="btn01">클릭</button>
+    </div>
+    <div class="test02">
+        <button id="btn02">좋아요</button>
+        <p>좋아요 <span id="likeCount">0</span></p>
+    </div>
+    <div class="test03">
+        <input type="text" id="userName">
+        <button id="btnName">신청</button>
+        <p id="output"></p>
+    </div>
+    <script>
+        document.getElementById("btn01").addEventListener('click', function () {
+            confirm("자바스크립트 반갑다")
+        })
+        let count = 0;
+        document.getElementById("btn02").addEventListener('click', function () {
+            count = count + 1;
+            console.log(count)
+            document.getElementById("likeCount").innerText = count
+        })
+        document.getElementById("btnName").addEventListener('click', function () {
+            let userName = document.getElementById('userName').value
+            console.log(userName)
+            document.getElementById("output").innerText = userName
+        })
+        /* 출력방법 (window)*/
+        alert("자바스크립트")
+        confirm("자바스크립트")
+        document.write("자바스크립트")
+        console.log("자바스크립트")
+
+    </script>
+</body>
+
+</html>
