@@ -10,12 +10,42 @@
 <body>
     <h1>변수</h1>
     <p>값을 담는 상자 -> 변하는 값</p>
+    <ul>
+        <li>alert-알림창</li>
+        <li>confirm-확인창</li>
+        <li>document.write-문서에 출력</li>
+        <li>console.log-개발자 콘솔</li>
+        <li>prompt-입력창</li>
+    </ul>
+    <button id="btn-input">클릭</button>
 
     <script>
         let name = "김재환"
         let major = "컴공"
         let gender = "남자"
         console.log(name, major, gender)
+
+        document.getElementById('btn-input').addEventListener('click',
+            function () {
+                let text = prompt('이름을 입력해주세요');
+                console.log(text)
+            })
+
+        /* let 변수 */
+        let userName = "리액트";
+        userName = "자바스크립트";
+        console.log(userName)
+
+
+        /* const */
+        const fruit = 'apple';
+        fruit = 'apple';
+        console.log(fruit)
+
+
+
+
+
     </script>
 
 </body>
