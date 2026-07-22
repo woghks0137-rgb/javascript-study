@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 다루기</title>
+    <style>
+        body {
+            padding: 100px;
+            background: skyblue;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .content {
+            width: 480px;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+        }
+
+        .content h2 {
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .content .box {
+            padding: 15px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box">
+            <h2>좋아요 예제</h2>
+            <button id="likeBtn">🌀 좋아요 <span>0</span></button>
+        </div>
+        <div class="box">
+            <h2 id="count">0</h2>
+            <button id="cart">🛒장바구니 담기</button>
+        </div>
+
+        <div class="box">
+            <ul id="noticeList"></ul>
+            <button id="addNotice">
+                공지사항 추가
+            </button>
+        </div>
+    </div>
+
+    <script>
+        /* 좋아요 예제 */
+        const likeBtn = document.querySelector("#likeBtn");
+        const likeCount = document.querySelector("span");
+        let count = 0;
+
+        likeBtn.addEventListener('click', function () {
+            count++;
+            likeCount.innerText = count
+        })
+
+        const cartBtn = document.querySelector("#cart");
+        const cartCount = document.querySelector("#count");
+
+        cart.addEventListener('click', function () {
+            count++;
+            cartCount.innerText = count
+        })
+
+        /* 공지사항 */
+        const noticeList = document.querySelector("#noticeList");
+        const addNotice = document.querySelector("#addNotice");
+
+        addNotice.addEventListener('click', function () {
+            noticeList.innerHTML += `
+                <li>새로운 공지사항입니다</li>
+            `
+        })
+    </script>
+</body>
+
+</html>

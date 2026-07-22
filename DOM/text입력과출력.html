@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text 입력과 출력</title>
+
+    <style>
+        body {
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <h2>안녕하세요</h2>
+    </div>
+    <button id="btn">내용변경</button>
+
+    <ul>
+        <li>나 보여</li>
+        <li style="display: none">나 안 보여</li>
+        <li>다 보여</li>
+        <li>정말 보여</li>
+    </ul>
+    <script>
+        const box = document.querySelector("#box");
+        const btn = document.querySelector("#btn");
+
+        btn.addEventListener('click', function () {
+            box.innerHTML = `
+                <h2>반갑습니다.</h2>
+                <p>innerHTML은 html 태그를 쓸 수 있습니다. </p>
+            `
+        })
+
+        const ul = document.querySelector("ul");
+        console.log(ul.innerText)/* display : none 이면 텍스트를 가져오지 못 한다. */
+        console.log(ul.textContent) /* display속성과 무관하다. */
+    </script>
+</body>
+
+</html>

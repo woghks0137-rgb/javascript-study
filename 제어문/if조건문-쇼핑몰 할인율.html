@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 할인율 계산</title>
+</head>
+
+<body>
+    <div>
+        <h2>회원 할인 계산</h2>
+        <select name="member_rate" id="member_rate">
+            <option value="VIP">VIP</option>
+            <option value="Gold">GOLD</option>
+            <option value="Silver">Silver</option>
+            <option value="Normal">Normal</option>
+        </select>
+        <button id="btn">가격계산</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        /* 
+            vip -> 20%
+            gold -> 15%
+            silver -> 5%
+            normal -> 할인X
+            
+            기본 상품 가격은 10,000원
+        */
+        /* 변수명 앞에$를 붙일 때는 선택자를 담은 변수라는 표시 */
+        const $btn = document.querySelector("#btn");
+        const $result = document.querySelector("#result");
+
+        $btn.addEventListener('click', function () {
+            let grade = document.querySelector
+                ("#member_rate").value;
+            /*  console.log(grade); */
+            const price = 10000;
+            let discount = 0;
+
+            if (grade === "VIP") {
+                discount = 20
+            } else if (grade === "Gold") {
+                discount = 15
+            } else if (grade === "Silver") {
+                discount = 5
+            } else {
+                discount = 0
+            }
+
+            /* 할인율 계산 */
+            const discountPrice = price * discount / 100;
+            const finalPrice = price - discountPrice;
+
+            $result.innerHTML = `
+                회원등급 : ${grade} <br>
+                상품가격 : ${price} <br>
+                할인율 : ${discount} <br>
+                <strong>결제금액 : ${finalPrice}원 <strong)
+            `
+        })
+
+
+
+    </script>
+</body>
+
+</html>

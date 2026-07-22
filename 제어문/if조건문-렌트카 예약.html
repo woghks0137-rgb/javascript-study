@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>렌트카 예약</title>
+</head>
+<style>
+    body {
+        padding: 100px;
+    }
+
+    input[type="number"] {
+        width: 130px;
+        height: 44px;
+        border: 1px solid #bbb;
+        padding: 5px;
+    }
+
+    input[type="cheakbox"] {
+        width: 25px;
+        height: 25px;
+        border: 1px solid #bbb;
+        vertical-align: middle;
+    }
+
+    button {
+        background: skyblue;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 12px 10px;
+    }
+
+    #result {
+        font-size: 18px;
+        font-weight: 500;
+        color: mediumblue;
+    }
+</style>
+
+<body>
+    <input type="number" id="userAge" placeholder="나이를 입력하세요">
+
+    <label>
+        <input type="checkbox" id="license">운전면허 있음
+    </label>
+
+    <button id="btn">예약하기</button>
+    <p id="result"> </p>
+
+    <script>
+        //선택자를 변수에 저장
+        const $btn = document.querySelector("#btn");
+        const $result = document.querySelector("#result");
+
+        $btn.addEventListener('click', function () {
+            /* Number로 감싸주면 데이터형(string)을 숫자형으로 변환해준다. */
+            const userAge = Number(document.querySelector
+                ("#userAge").value);
+            /* console.log(userAge); */
+            const license = document.querySelector("#license").checked;
+            /* console.log(license); */
+
+            if (userAge < 19) {
+                $result.textContent = "❌만 19세 이상만 이용가능합니다."
+            } else if (!license) {
+                $result.textContent = "❌운전 면허증이 필요합니다."
+            } else {
+                $result.textContent = "🚘렌트가 예약 가능합니다."
+            }
+        })
+
+        let age = 22;
+        let license = false;
+
+        if (age >= 19) {
+            if (license) {
+                console.log("렌트가 대여 가능")
+            } else {
+                console.log('운전면허가 필요합니다.')
+            }
+        } else {
+            console.log("19세이상만 이용가능합니다.")
+        }
+
+        /*
+        쇼핑몰 배송비 
+        기본 상품 가격(price) = 38000원
+        
+        조건1 : price가 5만원 이상 => 무료배송 출력
+        조건2 : price가 3만원 이상 => 배송비 2000 출력
+        조건3 : 배송비 3000출력
+        */
+        let price = 48000;
+
+        if (price >= 50000) {
+            console.log('무료배송입니다.')
+        } else if (price >= 30000) {
+            console.log('배송이 2000원입니다')
+        } else {
+            console.log('배송비 3000원입니다.')
+        }
+
+    </script>
+</body>
+
+</html>

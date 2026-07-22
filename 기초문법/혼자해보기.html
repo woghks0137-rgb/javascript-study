@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혼자 해보기</title>
+</head>
+
+<body>
+    <h1 id="title">좋은 아침!</h1>
+    <button onclick="changeText()">인사 바꾸기</button>
+
+    <p class="text">HTML</p>
+    <p class="text">CSS</p>
+    <p class="text">JavaScript</p>
+    <p class="text">React</p>
+
+
+    <ul>
+        <li>고양이</li>
+        <li>강아지</li>
+        <li>햄스터</li>
+    </ul>
+
+    <script>
+        function changeText() {
+            const title = document.getElementById("title");
+            title.innerText = "좋은밤"
+
+        }
+        const text = document.getElementsByClassName("text")
+        console.log(text[2].innerText)
+    </script>
+
+</body>
+
+</html>

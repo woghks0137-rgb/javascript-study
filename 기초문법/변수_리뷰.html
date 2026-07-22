@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수기초</title>
+</head>
+
+<body>
+    <script>
+        /* 
+         1. 변수란
+         변수 - (variable) -> 데이터를 저장하는 공간
+ 
+         2. 종류
+         var(2015년 이전) / let (최근에는 모두 이렇게 선언)
+         const(constant) -> 변하지 않는 값을 저장하는 공간
+         */
+        //1. 변수
+        let price = 10000;
+        let count = 8;
+        let count_text = '3'
+
+        console.log(typeof (count))
+        console.log(typeof (count_text))
+
+        console.log('price', price)
+        //alert(count)
+        //confirm(count)
+        //document.write(price)
+
+        console.log(typeof ('강사'));
+        console.log(typeof (20));
+        console.log(typeof (true));
+
+        const firstName = "김";
+        const lastName = "재환";
+
+        /* const fullName = firstName + lastName
+        console.log(fullName)
+ */
+        //공백을 추가하고 싶으면
+        const fullName = firstName + " " + lastName
+        console.log(fullName)
+
+        //문자열과 숫자를 연결
+        const age = 20;
+        const age_text = '세입니다.'
+        console.log(age + age_text);
+
+        //숫자와 숫자를 연결하면
+        const num1 = 10;
+        const num2 = "10";
+        console.log(num1 + num2);
+        console.log(num1 - num2);
+        console.log(num1 * num2);
+        console.log(num1 / num2);
+        console.log(num1 % num2);//나머지
+
+        //데이터타입을 확인
+        console.log(typeof (num1))
+        console.log(typeof (num2))
+        //숫자처럼 보이는 문자열
+
+        const result = '안녕' * 3
+        console.log(result);
+        console.log(typeof (result));
+
+        const isLogin = 1; //number
+        const isLogin2 = '1'; //string
+
+        console.log(isLogin === isLogin2)
+
+        const saveId = 'kris';
+        const inputId = 'kris';
+
+        const isCorrectId = saveId == inputId;
+        console.log(isCorrectId)
+
+        let userName;
+        console.log(userName);
+        console.log(typeof (userName));
+
+        console.log(typeof(null))
+
+    </script>
+</body>
+
+</html>

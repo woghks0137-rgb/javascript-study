@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다중 if문</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        값을 입력 받아서
+        10세 미만 -> 어린이
+        10세 ~ 19세 -> 청소년
+        20세 이상 -> 성인
+        */
+        let userAge = prompt('나이를 입력해주세요.')
+        console.log(userAge)
+
+        if (userAge < 10) {
+            console.log('당신은 어린이 입니다.')
+        } else if (userAge <= 19) {
+            console.log('당신은 청소년입니다.')
+        } else {
+            console.log('당신은 성인입니다.')
+        }
+    </script>
+</body>
+
+</html>

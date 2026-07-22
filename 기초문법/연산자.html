@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+
+<body>
+    <h1>자바스크립트 연산자 예제</h1>
+    <button id="btn1">산술연산자</button>
+    <button id="btn2">비교연산자</button>
+    <button id="btn3">논리연산자</button>
+    <button id="btn4">증감연산자</button>
+    <button id="btn5">대입연산자</button>
+    <hr>
+    <script>
+
+        const result = document.querySelector("#result");
+        //산술연산
+        document.querySelector('#btn1').addEventListener('click', function () {
+            let num1 = 10;
+            let num2 = 3;
+
+            console.log(num1, num2)
+
+            result.innerHTML = `
+                더하기: ${num1 + num2} <br>
+                빼기: ${num1 - num2} <br>
+                곱하기: ${num1 * num2} <br>
+                나누기: ${num1 / num2} <br>
+                나머지: ${num1 % num2} <br>
+             `
+        })
+
+        //비교연산자
+        document.querySelector("#btn2").addEventListener("click", function () {
+            let age = 20;
+            result.innerHTML = `
+                age>18: ${age > 18} <br>
+                age<18: ${age < 18} <br>
+                age==20: ${age == 20} <br>
+                age!=20: ${age != 20} <br>
+                age===20: ${age === 20} <br>
+                
+                `
+        })
+
+        //논리연산자
+        document.querySelector("#btn3").addEventListener("click", function () {
+            let age = 22;
+            let member = true;
+
+            result.innerHTML = `
+            AND: ${age >= 20 && member} <br>
+            OR: ${age >= 30 || member} <br>
+            NOT: ${!member} <br>
+            `
+        })
+
+        //증감연산자
+        document.querySelector("#btn4").addEventListener("click", function () {
+            let num = 5;
+            num++;
+
+            result.innerHTML = `
+                증가 후 : ${num} <br>
+            `
+        })
+
+        //대입연산자
+        document.querySelector("#btn5").addEventListener("click", function () {
+            let score = 10;
+
+            score += 5; //10+5 = 15 
+            score *= 2; //15*2 = 30  
+
+            result.innerHTML = `
+            최종점수 : ${score}
+            `
+        })
+
+    </script>
+</body>
+
+</html>
