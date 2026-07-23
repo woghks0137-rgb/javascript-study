@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품더보기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        .contents {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contents h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .contents .text {
+            line-height: 1.6;
+        }
+
+        .btnView {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .btnView span {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .text-box {
+            margin-bottom: 40px;
+        }
+
+        .text-box .text-area {
+            visibility: hidden;
+        }
+
+        .alert {
+            position: relative;
+            /*  display: none; */
+            visibility: hidden;
+        }
+
+        .alert>span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 1px solid #111;
+            font-size: 24px;
+            line-height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contents">
+        <div class="text-box">
+            <div class="bg-success p-2 text-dark bg-opacity-10 text-area">
+                <h2>Creaciones culinarias</h2>
+                <p class="text">
+                    Creaciones culinarias exquisitas utilizando ingredientes frescos de origen local y recetas
+                    auténticas. Nuestros talentosos chefs elaboran platos excepcionales que celebran sabores diversos y
+                    tradiciones culinarias. Cada comida es un viaje a través del sabor, la textura y la excelencia en la
+                    presentación.
+                </p>
+            </div>
+            <button type="button" class="btn btn-primary btnView">
+                상세설명보기
+                <span>
+                    <ion-icon name="chevron-down-outline"></ion-icon>
+                </span>
+            </button>
+        </div>
+
+        <div class="alert-area">
+            <div class="alert alert-warning" role="alert">
+                <p>고대 도시와 손길이 닿지 않은 자연의 경이로움을 여행하세요.</p>
+                <span class="btnClose">
+                    <ion-icon name="close-outline"></ion-icon>
+                </span>
+            </div>
+            <button type="button" class="btn btn-dark">알림보기</button>
+        </div>
+
+    </div>
+
+    <script>
+        const btnClose = document.querySelector(".btnClose")
+        const alert = document.querySelector(".alert");
+        const btnDark = document.querySelector(".btn-dark");
+        const textArea = document.querySelector(".text-area");
+        const btnView = document.querySelector(".btnView");
+        const icon = document.querySelector("ion-con");
+
+        btnView.addEventListener('click', function () {
+            //text-area의 display 상태를 확인해서 none 또는 block으로 선언
+            if (textArea.style.visibility === 'visible') {
+                textArea.style.visibility = 'hidden';
+                btnView.innerHTML = `
+                    상세설명보기 
+                    <span>
+                        <ion-icon name="chevron-down-outline"></ion-icon>
+                    </span>
+                `
+            } else {
+                textArea.style.visibility = 'visible';
+                btnView.innerHTML = `
+                    상세설명접기
+                    <span>
+                         <ion-icon name="chevron-up-outline"></ion-icon>
+                    </span>
+                `
+            }
+        })
+
+        btnDark.addEventListener("click", function () {
+            if (alert.style.visibility === 'visible') {
+                alert.style.visibility = 'hidden';
+                btnDark.innerHTML = `
+                알림열기
+                `
+            } else {
+                alert.style.visibility = 'visible';
+                btnDark.innerHTML = `
+                알림접기
+                `
+            }
+        })
+        btnClose.addEventListener("click", function () {
+            alert.style.visibility = "hidden";
+            btnDark.innerHTML = "알림열기";
+        });
+
+    </script>
+
+</body>
+
+</html>
