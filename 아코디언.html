@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아코디언 메뉴</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .question {
+            padding: 15px;
+            background: #ddd;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 17px;
+        }
+
+        .answer {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-width: 0 1px 1px 1px;
+            display: none;
+        }
+
+        .answer.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="question">
+            Q. classList가 무엇인가요?
+        </div>
+        <div class="answer">
+            A. 클래스 이름을 추가하거나 삭제하는 기능입니다.
+        </div>
+    </div>
+
+    <script>
+        const btnQ = document.querySelector(".question");
+        const answer = document.querySelector(".answer");
+
+        btnQ.addEventListener('click', function () {
+            answer.classList.toggle('show');
+        })
+    </script>
+</body>
+
+</html>

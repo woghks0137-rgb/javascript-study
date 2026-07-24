@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자색까지 바뀌는 다크모드</title>
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        .text-box {
+            max-width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+            margin: 0 auto 20px;
+        }
+
+        button {
+            padding: 10px;
+            background: black;
+            color: #fff;
+        }
+
+        /* 다크모드 */
+        .dark {
+            background: black;
+            color: #fff;
+        }
+
+        .dark .text-box {
+            border-color: #fff;
+        }
+
+        .dark button {
+            background: #fff;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-box">
+        <h2 class="text">화이트모드</h2>
+        <p>
+            Embark on a journey of discovery with our expertly crafted tour packages. From bustling metropolitan cities
+            to serene countryside retreats, we offer authentic experiences. Let our professional guides lead you through
+            history, culture, and natural beauty.
+        </p>
+    </div>
+    <button id="btn">다크모드</button>
+
+    <script>
+        /* 1.버튼을 클릭하면 배경색/텍스트컬러/버튼색이 지금의 반대가 되야함. */
+        /* 1-2. 버튼의 텍스트 모드가 라이트모드 */
+        const textBox = document.querySelector(".text-box");
+        const btn = document.querySelector("#btn");
+        const text = document.querySelector(".text");
+        const body = document.body
+
+        btn.addEventListener("click", function () {
+            /*   if (textBox.style.backgroundColor == 'black') {
+                  textBox.style.backgroundColor = '#fff'
+                  textBox.style.color = 'black'
+                  text.textContent = '화이트모드'
+                  btn.style.backgroundColor = 'black'
+                  btn.style.color = '#fff'
+                  btn.textContent = '다크모드'
+  
+  
+              } else {
+                  textBox.style.backgroundColor = 'black'
+                  textBox.style.color = '#fff'
+                  btn.style.backgroundColor = '#fff'
+                  btn.style.color = 'black'
+                  text.innerHTML = '다크모드'
+                  btn.textContent = '화이트모드'
+              } */
+            body.classList.toggle("dark");
+            if (body.classList.contains("dark")) {
+                btn.textContent = '화이트모드'
+            } else {
+                btn.textContent = '다크모드'
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

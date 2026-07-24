@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달창</title>
+    <style>
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .box {
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openBtn">모달열기</button>
+
+
+    <div class="modal">
+        <div class="box">
+            <h2>모달창</h2>
+            <button id="closeBtn">닫기</button>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.querySelector(".modal");
+        const btnOpen = document.querySelector("#openBtn");
+        const btnClose = document.querySelector("#closeBtn");
+
+        btnOpen.addEventListener('click', function () {
+            modal.classList.add('show');
+        })
+        btnClose.addEventListener('click', function () {
+            modal.classList.remove('show');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 추가 제거</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+        }
+
+        .box.on {
+            background: slateblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button class="add">색상변경</button>
+    <button class="remove">원래대로</button>
+    <button class="toggle">토글</button>
+
+    <script>
+        const box = document.querySelector(".box");
+        const btnAdd = document.querySelector(".add");
+        const btnRemove = document.querySelector(".remove")
+        const btnToggle = document.querySelector(".toggle")
+
+        btnAdd.addEventListener("click", function () {
+            box.classList.add('on')
+        })
+        btnRemove.addEventListener("click", function () {
+            box.classList.remove('on')
+        })
+        btnToggle.addEventListener("click", function () {
+            box.classList.toggle('on')
+        })
+    </script>
+</body>
+
+</html>

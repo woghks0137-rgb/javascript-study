@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+
+<body>
+    <ul id="gnb"></ul>
+    <script>
+        /* 배열은 관련된 여러 개의 값을 하나의 변수에 저장하는 자료형 */
+        /* 변수 -> 값 1개만 저장 가능 / 배열 -> 값 여러개 저장 가능 */
+        /* 배열은 [](대괄호), 값은 쉼표(,)로 구분 */
+
+        let fruits = ["사과", "바나나", "배"];
+
+        /* 배열확인 */
+        console.log(fruits);
+
+        /* 값을 꺼내기 */
+        console.log(fruits.length);
+
+        /* 배열안의 값을 변경 */
+        fruits[1] = "딸기";
+        console.log(fruits);
+
+        /* 배열의 마지막에 값을 추가 */
+        fruits.push("자두")
+        console.log(fruits)
+
+        /* 배열의 마지막에 값을 제거 */
+        fruits.pop();
+        console.log(fruits)
+
+        let gnb = ["회사소개", "서비스", "포트폴리오", "문의하기"];
+        let html = '';
+        for (let i = 0; i < gnb.length; i++) {
+            html += `<li><a href="#">${gnb[i]}</a></li>`
+        }
+        document.querySelector("#gnb").innerHTML = html
+    </script>
+</body>
+
+</html>

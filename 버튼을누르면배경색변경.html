@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼이벤트</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        #box {
+            width: 300px;
+            height: 150px;
+            background: skyblue;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">색상변경</button>
+
+    <script>
+        /* style -> 자바스크립트에서 css 속성을 변경하는 속성 */
+        /* selecotr.style.css 속성 = "값" */
+        /* 버튼을 클릭하면 배경색이 현재 색과 동일하면 다른 색으로 변경 */
+        /* 선택자변수 */
+        const box = document.querySelector("#box");
+        const btn = document.querySelector("#btn");
+
+        btn.addEventListener("click", function () {
+            if (box.style.backgroundColor == 'skyblue') {
+                box.style.backgroundColor = 'tomato'
+            } else {
+                box.style.backgroundColor = 'skyblue'
+            }
+        })
+    </script>
+</body>
+
+</html>

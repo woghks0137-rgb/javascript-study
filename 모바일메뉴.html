@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 메늎</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        button {
+            margin: 20px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            height: 100vh;
+            background: #333;
+            color: #fff;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .menu.open {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnMenu">메뉴</button>
+    <div class="menu">
+        <h2>Menu</h2>
+        <p>회사소개</p>
+        <p>제품소개</p>
+        <p>문의하기</p>
+    </div>
+
+    <script>
+        const btnMenu = document.querySelector("#btnMenu");
+        const menu = document.querySelector(".menu");
+
+        btnMenu.addEventListener("click", function () {
+            menu.classList.toggle("open")
+        })
+    </script>
+</body>
+
+</html>
