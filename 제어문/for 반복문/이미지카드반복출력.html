@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지카드 반복 출력</title>
+    <style>
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f1ebe1;
+        }
+
+        h2 {
+            font-weight: 600;
+        }
+
+        #gallery {
+            display: flex;
+            gap: 20px;
+        }
+
+        #gallery .card {
+            width: 220px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #gallery img {
+            width: 100%;
+            display: block;
+        }
+
+        #gallery h3 {
+            padding: 15px 15px 5px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #gallery p {
+            padding: 15px 15px 5px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>그림갤러리</h2>
+        <div id="gallery"></div>
+    </div>
+
+    <script>
+        //이미지 배열 생성
+        let images = [
+            "img/img01.png",
+            "img/img02.png",
+            "img/img03.png",
+            "img/img04.png",
+            "img/img05.png"
+        ];
+
+        let gallery = document.querySelector("#gallery");
+
+        //i는 배열 요소의 인덱스값
+        for (let i = 0; i < images.length; i++) {
+            gallery.innerHTML += `
+            <div class="card">
+                <img src="${images[i]}" alt="그림${i + 1}"> 
+                <h3>작품 ${i + 1}</h3>
+                <p>렌탈 가능</p>
+            </div>    
+            `
+        }
+    </script>
+</body>
+
+</html>

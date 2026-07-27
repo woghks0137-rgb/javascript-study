@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그림렌탈서비스</title>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(#8BDEDA, #43ADD0, #998EE0, #E17DC2, #EF9393);
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 40px;
+            border-radius: 10px;
+            background: #fff;
+        }
+
+        .container h2 {
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #gallery {
+            display: flex;
+            gap: 16px;
+        }
+
+        .card {
+            width: 200px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>🎨 오늘의 그림</h2>
+        <div id="gallery"></div>
+    </div>
+
+    <script>
+        let paintings = [
+            '고양이',
+            '바다',
+            '숲',
+            '우주',
+            '노을'
+        ]
+        console.log(paintings);
+        let gallery = document.querySelector("#gallery");
+
+        for (let painting of paintings) {
+            gallery.innerHTML += `
+            <div class='card'>
+                <h3>${painting}</h3>
+                <button>렌탈하기</button>
+            </div>
+            `
+        }
+    </script>
+</body>
+
+</html>

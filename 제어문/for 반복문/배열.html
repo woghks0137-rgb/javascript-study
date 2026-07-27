@@ -1,0 +1,60 @@
+!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            array(배열) - 여러개의 데이터를 하나의 변수에 저장하는 자료형
+        */
+        let fruits = ['사과', '배', '복숭아'];
+        console.log(fruits[2]); //복숭아
+        console.log(fruits.length); //3->데이터의 갯수
+
+        //데이터 추가
+        fruits.push('포도');
+        console.log(fruits);
+
+        //데이터를 변경
+        fruits[0] = "딸기";
+        console.log(fruits);
+
+        //데이터를 삭제 -> 맨마지막 데이터 삭제
+        fruits.pop();
+        console.log(fruits); //['딸기', '배', '복숭아']
+
+        /* 
+            slice() - 원본 배열에서 일부만 복사해서 새로운 배열로 만듦
+        */
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log(numbers);
+
+        let result = numbers.slice(-2); //뒤에서부터 숫자만큼
+        console.log('result:', result)
+        console.log('numbers:', numbers)
+
+        let products = ['노트북', '마우스', '키보드', '스피커', '웹켐'];
+        //4개만 출력
+        let productsCopy = products.slice(0, 4)
+        console.log(products);
+        console.log(productsCopy); //['노트북', '마우스', '키보드', '스피커']
+
+        //splice(시작번호, 삭제개수)
+        /* numbers.splice(4, 4);
+        console.log('numbers:', numbers); */ //[1, 2, 5, 6, 7, 8, 9, 10]
+
+        //삭제하면서 추가
+        numbers.splice(1, 1, 100)
+        console.log(numbers)
+
+
+
+    </script>
+</body>
+
+</html>

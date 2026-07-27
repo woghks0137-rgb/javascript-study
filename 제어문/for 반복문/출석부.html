@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출석부</title>
+
+    <style>
+        body {
+            padding: 200px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        table {
+            margin: auto;
+            width: 500px;
+
+            border-top: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+
+        table td {
+            border-bottom: 1px solid #bbb;
+            padding: 15px;
+
+        }
+
+        table tr td+td {
+
+            border-bottom: 1px solid #bbb;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+
+    </table>
+
+    <script>
+        let table = document.querySelector("table");
+        let students = ["온하준", '온세아', '강지연', '이하나', '김도윤']
+
+        for (let i = 0; i < students.length; i++) {
+            table.innerHTML += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${students[i]}</td>
+            </tr>
+            `
+        }
+    </script>
+
+</body>
+
+</html>
