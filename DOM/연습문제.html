@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습 문제</title>
+</head>
+
+<body>
+    <input type="text" id="box">
+    <button id="btnBox">클릭</button>
+    <div class="text"></div>
+    <script>
+        /* 1. input 요소의 내용을 p 요소에 출력 */
+        const box = document.querySelector("#box");
+        const btnBox = document.querySelector("#btnBox");
+        const text = document.querySelector(".text");
+
+        btnBox.addEventListener("click", function () {
+
+            /*        const p = document.createElement("p");
+                   p.textContent = box.value;
+                   text.append(p); */
+
+
+            let textValue = box.value;
+            text.textContent = textValue;
+            /* input 안에 내용을 가져옴 */
+        })
+
+    </script>
+</body>
+
+</html>

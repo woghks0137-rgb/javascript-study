@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문으로 메뉴 출력</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f6f1eb;
+            color: #332821;
+        }
+
+        .menu-box {
+            width: 520px;
+            padding: 40px;
+            border-radius: 20px;
+            background: #fff;
+
+        }
+
+        .menu-box h1 {
+            margin-bottom: 15px;
+            font-size: 30px;
+            font-weight: 600;
+            text-align: center;
+
+        }
+
+        .menu-box .guide {
+            margin-bottom: 30px;
+            color: #777;
+        }
+
+        .menu-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .menu-buttons .menu-btn {
+            flex: 1;
+            padding: 14px 10px;
+            border: 1px solid #cab8aa;
+            border-radius: 8px;
+            background: #fff;
+            color: #5c4538;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .menu-btn:hover {
+            background: #f7eee8;
+        }
+
+        .menu-btn.active {
+            border-color: #6c4bed;
+            background: #6c4bed;
+            color: #fff;
+        }
+
+        .menu-result {
+            min-height: 220px;
+            padding: 30px;
+            border-radius: 14px;
+            background: #f8f5f2;
+        }
+
+        #category {
+            display: inline-block;
+            margin-bottom: 16px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background: #e8ddd4;
+            color: #6c4b3d;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        #menu-name {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        #menu-price {
+            margin-bottom: 20px;
+            color: #b35c32;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #menu-desc {
+            color: #666;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-box">
+        <h1>🍷 카페 메뉴 </h1>
+        <p class="guide">메뉴를 선택하면 상세 정보가 표시됩니다.</p>
+
+        <div class="menu-buttons">
+            <button class="menu-btn" data-menu="americano">아메리카노</button>
+            <button class="menu-btn" data-menu="cafelatte">카페라테</button>
+            <button class="menu-btn" data-menu="lemonade">레몬에이드</button>
+        </div>
+        <div class="menu-result">
+            <span id="category">MENU</span>
+            <h2 id="menu-name">메뉴를 선택하세요.</h2>
+            <p id="menu-price">가격: -</p>
+            <p id="menu-desc">선택한 메뉴의 설명이 여기에 표시됩니다.</p>
+        </div>
+    </div>
+
+    <script>
+        //모든 메뉴 버튼을 변수
+        const menuButtons = document.querySelectorAll('.menu-btn');
+        /*  console.log(menuButtons) */
+
+        //결과를 출력한 요소 변수
+        const category = document.querySelector("#category"),
+            menuName = document.querySelector("#menu-name"),
+            menuPrice = document.querySelector("#menu-price"),
+            menuDesc = document.querySelector("#menu-desc");
+
+        //모든 메뉴 버튼에 클릭 이벤트 연결
+        for (const btn of menuButtons) {
+            console.log(btn)
+            btn.addEventListener("click", function () {
+                //클릭한 메뉴의 data-menu 값을 가져오기
+                const selectMenu = btn.dataset.menu;
+                console.log(selectMenu)
+
+                //모든 버튼의  active 클래스 제거
+                for (const item of menuButtons) {
+                    /*  console.log(`item : ${item}`) */
+                    item.classList.remove(`active`)
+                }
+                //선택한 버튼에만 active 클래스 추가
+                btn.classList.add('active')
+
+                //클릭한 메뉴에 따라 정보 변경
+                if (selectMenu === 'americano') {
+                    category.textContent = 'COFFEE';
+                    menuName.textContent = '아메리카노';
+                    menuPrice.textContent = '가격 : 5,500원'
+                    menuDesc.textContent = '에스프레소에 물을 더한 갈끔하고 진한 커피입니다.'
+
+                } else if (selectMenu === 'cafelatte') {
+                    category.textContent = 'COFFEE';
+                    menuName.textContent = '카페라떼';
+                    menuPrice.textContent = '가격 : 6,500원'
+                    menuDesc.textContent = '우유에 에스프레소를 더한 부드러운 커피입니다.'
+
+                } else {
+                    category.textContent = 'ADE';
+                    menuName.textContent = '레몬에이드';
+                    menuPrice.textContent = '가격 : 6,500원'
+                    menuDesc.textContent = '레몬향이 가득한 레몬에이드 입니다.'
+
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

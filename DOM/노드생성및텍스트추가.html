@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성 및 텍스트 추가</title>
+
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        #desc {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>요소 생성하고 요소의 내용을 출력해보기</h1>
+    <h2>빈센트 반고흐</h2>
+    <p id="desc">Vincent van Gogh - 고흐의 방</p>
+    <button id="cartBtn">장바구니</button>
+    <div class="artList"></div>
+
+    <script>
+        /* 버튼을 클릭하면 artList안에 p요소를 생성 */
+        /* 생성된 p안에 desc 내용이 출력 */
+
+        const desc = document.querySelector("#desc");
+        const cartBtn = document.querySelector("#cartBtn");
+        const artList = document.querySelector(".artList");
+
+        cartBtn.addEventListener("click", function () {
+
+            const p = document.createElement("p");
+            p.textContent = desc.textContent;
+            artList.append(p);
+
+        })
+    </script>
+</body>
+
+</html>

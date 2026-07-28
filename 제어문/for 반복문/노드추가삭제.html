@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가 삭제</title>
+
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 12px;
+            background: #000;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #newName {
+            padding: 17px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="addBtn">메뉴 추가</button>
+    <ul id="menu">
+        <li>아메리카노</li>
+    </ul>
+
+    <!-- 입력창으로 메뉴 추가 -->
+    <input type="text" id="newName">
+    <button id="btnAdd">추가</button>
+    <ul id="menuList"></ul>
+
+    <hr>
+    <ul id="menu-set">
+        <li>아메리카노</li>
+        <li>카페라떼</li>
+    </ul>
+    <button id="btnRemove">삭제</button>
+
+    <script>
+        const addBtn = document.querySelector("#addBtn");
+        const menu = document.querySelector("#menu");
+
+        addBtn.addEventListener("click", function () {
+            /* 1. 만들기 */
+            const newMenu = document.createElement("li");
+            /* 2. 내용넣기 */
+            newMenu.textContent = '카페라떼';
+            /* 3. ul에 넣기 */
+            menu.append(newMenu)
+
+        });
+
+        /* 2. 입력창으로 메뉴 추가 */
+        const newName = document.querySelector("#newName");
+        const btnAdd = document.querySelector("#btnAdd");
+        const menuList = document.querySelector("#menuList");
+
+        btnAdd.addEventListener("click", function () {
+            const li = document.createElement("li");
+            li.textContent = newName.value; /* input 창의 텍스트 정보를 가져오는 속성 - value */
+            menuList.append(li);
+            /*  menuList.prepend(li); */
+        })
+
+        /* 3. 노드 삭제 */
+        const btnRemove = document.querySelector("#btnRemove");
+
+        btnRemove.addEventListener("click", function () {
+            const removeMenu = document.querySelector("#menu-set li");
+            console.log(removeMenu); /* 아메리카노 */
+            removeMenu.remove();
+        })
+    </script>
+</body>
+
+</html>
