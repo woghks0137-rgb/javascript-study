@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 전체선택</title>
+</head>
+
+<body>
+    <h1>체크박스 전체선태고가 해제</h1>
+    <form action="">
+        <input type="checkbox" id="chk01" checked>트레이닝복 <br>
+        <input type="checkbox" id="chk02">티셔츠 <br>
+        <input type="checkbox" id="chk03">데님 <br>
+        <input type="checkbox" id="chk04">자켓 <br>
+        <input type="checkbox" id="chk05">악세사리 <br>
+        <input type="checkbox" id="chk06">모자 <br>
+
+        <div>
+            <input type="button" value="전체선택" id="selectAll">
+            <input type="button" value="전체해제" id="deselectAll">
+        </div>
+    </form>
+
+    <script>
+        //전체 선택
+        document.querySelector("#selectAll").addEventListener("click", function () {
+            const checkboxs = document.querySelectorAll("input[type = 'checkbox']")
+            console.log(checkboxs)
+
+            for (let checkbox of checkboxs)
+
+                checkboxs.forEach(function (checkbox) {
+                    checkbox.checked = true
+                });
+        })
+
+        //전체 해제
+        document.querySelector("#deselectAll").addEventListener("click", function () {
+            const checkboxs = document.querySelectorAll("input[type = 'checkbox']")
+            console.log(checkboxs)
+
+            for (let checkbox of checkboxs)
+
+                checkboxs.forEach(function (checkbox) {
+                    checkbox.checked = false
+                });
+        })
+    </script>
+</body>
+
+</html>

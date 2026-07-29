@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>움직이는 애니메이션</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            color: rosybrown;
+            background: radial-gradient(#ffd3d3 20%, #f3ae95);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <script>
+        const box = document.querySelector("#box");
+
+        box.animate([
+            {
+                opacity: 0.5,
+                transform: 'translateX(0)' //시작
+            },
+            {
+                opacity: 1,
+                transform: 'translateX(1440px)' //끝
+            }
+        ], {
+            duration: 2000, //시간
+            iterations: Infinity, //무한반복
+            direction: 'alternate' //시작 -> 끝 -> 시작을 반복해서 자연스러운 이동 애니메이션
+        })
+
+    </script>
+</body>
+
+</html>

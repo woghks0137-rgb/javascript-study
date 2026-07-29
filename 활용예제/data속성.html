@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data 속성</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        #product-list {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>상품리스트</h2>
+    <ul id="product-list">
+        <li data-name="무드등" data-price="25000">무드등</li>
+        <li data-name="아로마캔들" data-price="38000">아로마캔들</li>
+        <li data-name="캔들워머" data-price="19000">캔들워머</li>
+    </ul>
+    <p class="result"></p>
+
+    <script>
+        const items = document.querySelectorAll("#product-list li")
+        /*  console.log(items) */
+
+        for (let item of items) {
+            item.addEventListener("click", function () {
+                const name = item.dataset.name;
+                const price = item.dataset.price;
+                document.querySelector('.result').textContent = `${name}의 가격은 ${Number(price).toLocaleString()}원입니다.`
+            })
+        }
+    </script>
+</body>
+
+</html>

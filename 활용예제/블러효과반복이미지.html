@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블러효과반복이미지</title>
+    <style>
+        body {
+            padding: 100px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightgray;
+        }
+
+        .grid {
+            max-width: 1440px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .item {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+
+            /* blur */
+            /*  filter: blur(15px); */
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <img src="/제어문/for 반복문/img/img01.png" alt="" class="item">
+        <img src="/제어문/for 반복문/img/img02.png" alt="" class="item">
+        <img src="/제어문/for 반복문/img/img03.png" alt="" class="item">
+        <img src="/제어문/for 반복문/img/img04.png" alt="" class="item">
+        <img src="/제어문/for 반복문/img/img05.png" alt="" class="item">
+    </div>
+
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        console.log(items)
+        for (let i = 0; i < items.length; i++) {
+
+            //애니메이션 [시작상태,끝상태]
+            const keyframes = {
+                filter: [
+                    "blur(15px) grayscale(100%)",
+                    "blur(0) grayscale(0)"
+                ],
+
+                opacity: [0, 1]
+            }
+            //애니메이션 옵션
+            const options = {
+                duration: 900, //실행시간
+                delay: i * 300, //이미지마다 0.3초씩 늦게 실행
+                easing: 'ease-out', //부드럽게 끝남
+                fill: 'forwards' //애니메이셔닝 끝난 상태를 유지
+            }
+            //애니메이션 실행
+            items[i].animate(keyframes, options)
+        }
+
+    </script>
+</body>
+
+</html>

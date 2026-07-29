@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기초연습</title>
+    <style>
+        body {
+            background: #ddd;
+        }
+
+        .feel-area {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            padding: 100px;
+            text-align: center;
+            background: #fff;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        button {
+            padding: 30px;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        #result {
+            padding: 50px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="feel-area">
+        <h2>오늘 기분 어때?</h2>
+        <button id="btn01">행복하다</button>
+        <button id="btn02">기대된다</button>
+        <button id="btn03">눈물난다</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const btn01 = document.querySelector("#btn01");
+        const btn02 = document.querySelector("#btn02");
+        const btn03 = document.querySelector("#btn03");
+        const result = document.querySelector("#result");
+
+        const message = [
+            '오늘은 나쁘지 않네',
+            '조금 기대된다',
+            '아니야 비야'
+        ]
+        //버튼을 클릭하면 result의 배경색과 테두리색을 추가 또는 변경
+        btn01.addEventListener("click", function () {
+            result.textContent = message[0]
+            result.style.backgroundColor = 'skyblue'
+
+        })
+        btn02.addEventListener("click", function () {
+            result.textContent = message[1]
+            result.style.backgroundColor = 'black'
+            result.style.color = 'white'
+        })
+        btn03.addEventListener("click", function () {
+            result.textContent = message[2]
+            result.style.backgroundColor = 'brown'
+        })
+    </script>
+</body>
+
+</html>

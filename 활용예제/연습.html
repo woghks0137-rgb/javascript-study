@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+
+    <style>
+        body {
+            background: #ddd;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            border: 1px solid black;
+            margin: 0 auto;
+            padding: 100px;
+            background: #fff;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .menu-btn {
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 50px;
+        }
+
+        .result {
+            padding: 50px 50px;
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>오늘 기분은 어떤가요?</h1>
+        <div class="btnList">
+            <button class="menu-btn menu-btn1">행복해요</button>
+            <button class="menu-btn menu-btn2">피곤해요</button>
+            <button class="menu-btn menu-btn3">즐거워요</button>
+        </div>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        const btnButtons1 = document.querySelector(".menu-btn1")
+        const btnButtons2 = document.querySelector(".menu-btn2")
+        const btnButtons3 = document.querySelector(".menu-btn3")
+        const result = document.querySelector(".result")
+
+        const menu = [
+            '좋네요',
+            '그냥 하세요',
+            '그래 보여요'
+        ]
+
+        btnButtons1.addEventListener("click", function () {
+            result.textContent = menu[0]
+        })
+        btnButtons2.addEventListener("click", function () {
+            result.textContent = menu[1]
+        })
+        btnButtons3.addEventListener("click", function () {
+            result.textContent = menu[2]
+        })
+
+    </script>
+</body>
+
+</html>
