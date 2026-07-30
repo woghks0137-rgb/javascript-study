@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색어찾기</title>
+    <style>
+        body {
+            padding: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="상품명입력">
+    <button id="searchBtn" onclick="search()">검색</button>
+    <p id="searchResult"></p>
+
+
+    <script>
+        const items = ["무드등", "원목의자", "클래식시계", "거실테이블"];
+
+        const btn = document.querySelector("#searchBtn"),
+            input = document.querySelector("#search"),
+            output = document.querySelector("#searchResult");
+
+        function search() {
+            let keyword = input.value;
+            //console.log(keyword)
+
+            const found = items.includes(keyword);
+            console.log("found", found)
+
+            output.textContent = found ? `${keyword} 상품이 있습니다` : "찾는 상품이 없습니다."
+        }
+    </script>
+</body>
+
+</html>

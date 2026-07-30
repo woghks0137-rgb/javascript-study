@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강아지 프로필</title>
+    <style>
+        .card {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+
+        }
+
+        #result {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            gap: 10px;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>🐩 우리집 강아지</h1>
+        <div id="result">버튼을 눌러서 상세정보를 확인하세요.</div>
+        <button id="btn">프로필 보기</button>
+    </div>
+
+    <script>
+        const dogs = [
+            {
+                name: '테리',
+                age: 2,
+                breed: '보더콜리',
+                favorite: '공놀이',
+                imgae: "https://images.unsplash.com/photo-1635448122404-4666d5f2aa43?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                name: '똘이',
+                age: 15,
+                breed: '치와와',
+                favorite: '엄마',
+                imgae: "https://images.unsplash.com/photo-1605639156481-244775d6f803?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                name: '뽀또',
+                age: 1,
+                breed: '라이카',
+                favorite: '사람',
+                imgae: "https://images.unsplash.com/photo-1768822550449-bad8a636a222?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            }
+        ]
+
+        const btn = document.querySelector("#btn");
+        const result = document.querySelector("#result");
+
+
+        btn.addEventListener("click", () => {
+            result.innerHTML = ''
+            for (const dog of dogs) {
+                result.innerHTML += `
+            <div class = 'cards'>
+                <img src="${dog.imgae}">
+                <div class:"info">
+                    <h2>이름 : ${dog.name}</h2>
+                    <p>나이 : ${dog.age}</p>
+                    <p>견종 : ${dog.breed}</p>
+                    <p>좋아하는 거 : ${dog.favorite}</p>
+                </div>    
+             </div>   
+            `
+            }
+
+        })
+    </script>
+</body>
+
+</html>

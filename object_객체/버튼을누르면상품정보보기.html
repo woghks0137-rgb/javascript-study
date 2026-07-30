@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼을 클릭하면 상품정보 보기</title>
+
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            background: #ddd;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        img {
+            margin-bottom: 30px;
+        }
+
+        .result {
+            margin-bottom: 30px;
+        }
+
+        #btn {
+            background: darkblue;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🛒상품정보</h1>
+        <div class="card">
+            <img src="https://picsum.photos/300/200" alt="">
+            <div class="result">
+                버튼을 눌러 상품 정보를 확인해주세요.
+            </div>
+            <button id="btn">상품정보보기</button>
+        </div>
+    </div>
+
+    <script>
+        //상품정보
+        const product = {
+            title: "무드등",
+            price: 35000,
+            brand: "오늘의 집",
+            stock: 12
+        }
+        const btn = document.querySelector("#btn");
+        const result = document.querySelector(".result");
+
+        btn.addEventListener("click", function () {
+            result.innerHTML = `
+                <strong>상품명</strong>:${product.title}
+                <strong>상품명</strong>:${product.price}
+                <strong>상품명</strong>:${product.brand}
+                <strong>상품명</strong>:${product.stock}
+            `
+        })
+    </script>
+</body>
+
+</html>

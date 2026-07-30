@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변환</title>
+    <style>
+        body {
+            padding: 200px 0;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        .contents {
+            width: 640px;
+            margin: 0 auto;
+        }
+
+        #btn {
+            padding: 10px;
+            font-size: 18px;
+            background: black;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #gnb {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
+            background: slateblue;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        #gnb.hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        flex로 선언된 ui를 display : none -> block으로 재선언 할 때
+        flex가 적용돈 ul가 깨지게 된다. 이 문제를 어떻게 해결할까?
+    </h2>
+    <div class="contents">
+        <button id="btn">메뉴열기</button>
+        <nav id="gnb" class="menu hide">
+            <a href="#" class="item">메뉴1</a>
+            <a href="#" class="item">메뉴1</a>
+            <a href="#" class="item">메뉴1</a>
+        </nav>
+    </div>
+
+
+    <script>
+        const btn = document.querySelector("#btn");
+        const gnb = document.querySelector(".menu");
+
+        btn.addEventListener("click", () => {
+            const isHidden = gnb.classList.contains("hide");
+
+            if (isHidden) {
+                gnb.classList.remove("hide")
+            } else {
+                gnb.classList.add("hide");
+                gnb.style.display = "flex"
+            }
+        })
+    </script>
+</body>
+
+</html>
