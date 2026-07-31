@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수의 매개변수</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        .card {
+            width: 200px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px;
+            background: #222;
+            color: #fff;
+        }
+
+        #result {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>회원정보</h2>
+        <button id="btn1">철수</button>
+        <button id="btn2">영희</button>
+        <button id="btn3">민수</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const result = document.querySelector("#result");
+
+        function showUserName(name) {
+            result.textContent = name + "님 환영합니다."
+        }
+        document.querySelector("#btn1").addEventListener("click", function () {
+            showUserName("철수")
+        })
+        document.querySelector("#btn2").addEventListener("click", function () {
+            showUserName("영희")
+        })
+        document.querySelector("#btn3").addEventListener("click", function () {
+            showUserName("민수")
+        })
+    </script>
+</body>
+
+</html>

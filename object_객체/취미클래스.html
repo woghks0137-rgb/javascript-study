@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주말 취미 클래스</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            padding: 80px 20px;
+            color: #222;
+            background: #f4f1eb;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            width: 120px;
+            height: 40px;
+            background: #222;
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .title-area {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .badge {
+            margin-bottom: 14px;
+            color: #7c654f;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 42px;
+            line-height: 1.3;
+        }
+
+        .desc {
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .class-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            text-align: center;
+
+            gap: 30px;
+
+        }
+
+        .class-card {
+            padding: 30px;
+            border-radius: 12px;
+            background: skyblue;
+
+        }
+
+        .class-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            font-size: 34px;
+            background: #f4f1eb;
+        }
+
+        .class-list h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .class-list .class-info strong {
+            color: #111;
+        }
+
+        .class-list .status {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .class-list .status.open {
+            color: #176b43;
+            background: #dff5e9;
+            border-radius: 20px;
+        }
+
+        .class-list .status.closed {
+            color: #a13dd3;
+            background: #fde5e5;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <div class="title-area">
+            <p class="badge">weeked class</p>
+            <h1>이번 주말,<br>새로운 취미를 시작해보세요.</h1>
+            <p class="desc">버튼을 클릭하면 신청할 수 있는 취미 클래스가 나타납니다.</p>
+            <button id="showbtn">클래스 목록 보기</button>
+        </div>
+
+        <!-- 자바스크립트로 보여질 목록 -->
+        <div id="classList" class="class-list"></div>
+    </main>
+
+    <script>
+        //취미클래스 정보를 객체 배열로 저장
+        const classes = [
+            {
+                icon: "🎨",
+                title: '수채화 클래스',
+                place: '홍대작업실',
+                time: '2시간',
+                level: '초급',
+                availabel: true
+            },
+            {
+                icon: "🍰",
+                title: '미니 케이크 만들기',
+                place: '성수 베이킹룸',
+                time: '3시간',
+                level: '초급',
+                availabel: true
+            },
+            {
+                icon: "📷",
+                title: '감성 사진 촬영',
+                place: '서울숲',
+                time: '2시간',
+                level: '입문',
+                availabel: true
+            },
+            {
+                icon: "🎋",
+                title: '테라리움 만들기',
+                place: '연남동 공방',
+                time: '1시간 30분',
+                level: '초급',
+                availabel: true
+            },
+            {
+                icon: "🧶",
+                title: '뜨개질 소품 만들기',
+                place: '망원동공방',
+                time: '1시간',
+                level: '입문 ',
+                availabel: false
+            },
+            {
+                icon: "☕",
+                title: '핸드드립 커피',
+                place: '합정 카페',
+                time: '1    시간',
+                level: '초급',
+                availabel: true
+            }
+        ]
+        const btn = document.querySelector("#showbtn");
+        const classList = document.querySelector("#classList");
+
+        btn.addEventListener("click", function () {
+            //버튼을 여러번 눌러도 카드가 중복되지 않도록 초기화
+            classList.innerHTML = '';
+
+            //classes 배열에서 객체를 하나씩 
+            /* console.log(classes) */
+
+            for (const hobbyClass of classes) {
+                //console.log(`hobbyClass:${hobbyClass}`)
+
+                //신청 가능 여부에 따라서 보여줄 정보
+                let statusText;
+                let statusClass;
+
+                if (hobbyClass.availabel === true) {
+                    statusText = "신청가능",
+                        statusClass = "open"
+                } else {
+                    statusText = "신청마감",
+                        statusClass = "closed"
+                }
+                //객체 정보를 html 카드로 추가
+                classList.innerHTML += `
+                    <article class='class-card'>
+                        <div class='class-icon'>${hobbyClass.icon}</div>
+                            <h2>${hobbyClass.title}</h2>
+                           <p class='class-info'><strong>장소</strong> ${hobbyClass.place}</p>
+                             <p class='class-info'><strong>소요시간</strong> ${hobbyClass.time}</p>
+                               <p class='class-info'><strong>난이도</strong> ${hobbyClass.level}</p>
+                               <span class='status ${statusClass}'>${statusText}</span>
+
+                        </article>
+                `
+            }
+        })
+    </script>
+</body>
+
+</html>

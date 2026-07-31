@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수(function)</title>
+</head>
+
+<body>
+    <button id="btn">인사하기</button>
+    <button id="btnOn">불 켜기</button>
+    <p id="result"></p>
+    <script>
+        const btn = document.querySelector("#btn");
+
+        function hello() {
+            console.log("맛있게 먹어")
+        }
+        btn.addEventListener("click", hello)
+
+        const btnOn = document.querySelector("#btnOn");
+        const result = document.querySelector("#result");
+
+        //btnnOn을 클릭하면 result에 불이 켜졌습니다
+        /* btnOn.addEventListener("click", function () {
+            result.textContent = 'result에 불이 켜졌습니다.'
+        }) */
+
+        //함수로 변환
+        function lightOn() {
+            result.textContent = '불이 켜졌어요'
+        }
+        btnOn.addEventListener("click", lightOn)
+    </script>
+</body>
+
+</html>
