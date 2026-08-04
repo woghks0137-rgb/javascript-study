@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습 02</title>
+</head>
+
+<body>
+    <p>수학</p>
+    <div>
+        <input type="number" name="" id="number1"> 숫자1번
+        <input type="number" id="number2"> 숫자2번
+    </div>
+    <select name="" id="plus">
+        <option>더하기</option>
+        <option>빼기</option>
+        <option>곱하기</option>
+        <option>나누기</option>
+    </select>
+
+    <button id="btn">버튼</button>
+
+    <div class="result"></div>
+
+    <script>
+
+        const btn = document.querySelector("#btn");
+        const result = document.querySelector(".result");
+
+        btn.addEventListener("click", function () {
+            const box = document.querySelector("#plus").value;
+            const number1 = Number(document.querySelector("#number1").value);
+            const number2 = Number(document.querySelector("#number2").value);
+
+            if (box === "더하기") {
+                result.innerHTML = `계산 결과 ${number1 + number2}`
+            } else if (box === "빼기") {
+                result.innerHTML = `계산 결과 ${number1 - number2}`
+            } else if (box === "곱하기") {
+                result.innerHTML = `계산 결과 ${number1 * number2}`
+            } else {
+                result.innerHTML = `계산 결과 ${number1 / number2}`
+            }
+        })
+
+    </script>
+</body>
+
+</html>
