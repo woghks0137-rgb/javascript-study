@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로딩블러효과</title>
+
+    <style>
+        #loading {
+            background: rgba(249, 214, 74, 0.7);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-bottom: auto;
+            padding: 100px;
+        }
+
+        h1,
+        h2,
+        p {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <p>Loding.....</p>
+    </div>
+    <div class="container">
+        <h1>자바스크립트란 프로그램 언어 중 하나</h1>
+        <p>자바스크립트는 웹 페이지에 기능을 추가할 수 있는 프로그래밍 언어입니다. 브라우저에서 동작하는 언어로 1995년 탄생했습니다. 이제는 자바스크립트를 이용하지 않는 웹사이트를 찾기 어려울 정도로
+            전세계에서 사용중입니다.지금 이 책을 손에 들고 있는 여러분도 웹 사이트에서 매일 자바스크립트를 접하고 있을 것입니다. </p>
+        <p>웹사이트는 '콘텐츠를 표시하는 문서구조를 위한 HTML', '겉모습을 바꾸는 CSS', '웹 사이트에서 움직이는 부분을 만드는 자바스크립트'로 이루어져 있습니다. 차로 비유하자면 '차체의 뼈대를
+            만드는 것이 HTML', '색상 등 외관을 만드는 것이 CSS', '악셀, 브레이크, 라이트 등의 기능적인 부분 만드는 것이 자바스크립트'입니다.</p>
+        <h2>HTML과 CSS만으로는 불가능한 것을 실현시키는 자바스크립트</h2>
+        <p>HTML과 CSS만으로도 웹 사이트를 만들 수 있습니다. CSS로 애니메이션을 더하거나 화면 폭에 맞춰 표현 방식을 바꿀 수도 있습니다. 하지만 HTML과 CSS는 한번 브라우저에서 로딩하면 처음
+            작성된 코드에서 바뀌지 않습니다.</p>
+        <p>자바스크립트에서는 HTML이나 CSS를 실시간으로 변경하거나 사용자의 조작에 맞춰 움직임이나 기능을 더할 수 있습니다. HTML이나 CSS만으로는 어려운 것을 자바스크립트로 보다 풍부하게 표현할
+            수 있습니다.</p>
+        <h2>자바스크립트는 프로그래밍 초보에게도 추천</h2>
+        <p>‘프로그래밍’ 이라고 하면 바로 어렵게 느끼는 사람도 있을 수 있습니다. 하지만 괜찮아요! 앞서 설명한 것처럼 자바스크립트는 웹 페이지를 조작하기 위한 언어이므로 여러분이 항상 이용하는 웹
+            브라우저에서 작동합니다. 특별한 장치나 환경도 필요하지 않습니다. </p>
+        <p>또한 자바스크립트는 세계적으로 인기 있는 언어이므로 모르는 것이 있더라도 검색하면 바로 해결 방법을 찾을 수 있습니다. 자바스크립트의 학습 사이트나 스터디 그룹, 커뮤니티도 많으므로 프로그래밍
+            초보자도 부담 없이 시작할 수 있습니다.</p>
+    </div>
+
+    <script>
+        const loadingArea = document.querySelector("#loading");
+        const lodingText = document.querySelector("#loading p");
+
+        window.addEventListener('load', () => {
+            //로딩 중 흐릿한 화면
+            loadingArea.animate(
+                //애니메이션 속성
+                {
+                    //요소 자체에 흐림효과 ->css 속성:반투명한 필터효과
+                    backdropFilter: ['blur(10px)', 'blur(0)'],
+                    background: ['rgba(249,214,74,0.7)', 'rgba(249,214,74,0)'],
+                    visibility: 'hidden' //애니메이션이 끝나면 숨김
+                },
+                //애니메이션 옵션 - > 시간 / 지연시간 / 실행 후
+                {
+                    duration: 2000, //2s 
+                    delay: 1200, //지연시간 1.2초
+                    fill: 'forwards' //애니메이션이 끝난 상태를 유지
+                }
+            );
+            //로딩 중 텍스트
+            lodingText.animate(
+                //배열안에는 애니메이션 객체정보만 들어간다.
+                [
+                    {
+                        opacity: 1,
+                        offset: .8 //80% - css의  진행률
+                    },
+                    {
+                        opacity: 0,
+                        offset: 1 //80%
+                    }
+
+                ],
+                {
+                    duration: 1200,
+                    fill: "forwards"
+                }
+            )
+        })
+    </script>
+
+</body>
+
+</html>

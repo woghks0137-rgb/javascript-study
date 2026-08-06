@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>총합구하기</title>
+</head>
+
+<body>
+    <button id="btn" onclick="sumCalc()">합계</button>
+    <p id="totalPrice"></p>
+
+    <script>
+        const btn = document.querySelector("#btn");
+
+        function sumCalc() {
+            const prices = [12000, 22000, 35000, 18000]
+
+            let sum = 0;
+            for (let price of prices) {
+                console.log(price)
+
+                sum += price
+            }
+            document.querySelector("#totalPrice").textContent = `총합 : ${sum.toLocaleString()}원`
+        }
+    </script>
+</body>
+
+</html>

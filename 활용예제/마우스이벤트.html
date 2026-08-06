@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트</title>
+</head>
+
+<body>
+    <h1>이미지에 마우스를 올려보세요</h1>
+    <div class="gallery">
+        <div class="card"><img src="https://picsum.photos/id/237/300/200" alt="강아지">
+            <p>강아지</p>
+        </div>
+        <div class="card"><img src="https://picsum.photos/id/1025/300/200" alt="앵무새">
+            <p>앵무새</p>
+        </div>
+        <div class="card"><img src="https://picsum.photos/id/1062/300/200" alt="바다">
+            <p>바다</p>
+        </div>
+    </div>
+    <p id="text">이벤트 확인</p>
+    <!-- 
+        mouseover -> 마우스가 요소 위로 올라감 / 자식요소 포함
+        mouseenter -> 마우스가 요소 안으로 처음 들어감 / 자식요소 포함 안 함
+
+        mouseout -> 마우스가 요소 밖으로 나감 -> 자식요소 포함
+        mouseleave -> 마우스가 요소를 완전히 벗어남 -> 자식요소 포함 안 함
+    -->
+    <script>
+        const cards = document.querySelector(".card");
+        const text = document.querySelector("text");
+        for (let card of cards) {
+            card.addEventListener('mouseleave', (event) => {
+                text.textContent =
+                    "mouseleave: " + event.target.tagName;
+            })
+        }
+    </script>
+</body>
+
+</html>

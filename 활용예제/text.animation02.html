@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트애니메이션</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">자바스크립트 애니메이션</h1>
+
+    <script>
+        const heading = document.querySelector("#heading");
+        const keyframes = {
+            color: ['red', 'orange', 'yellow', 'green', 'blue', 'purple']
+        }
+        const option = {
+            duration: 4000,
+            direction: 'alternate',//시작 -> 끝 -> 시작 : 왕복
+            iterations: 'Infinity'
+        }
+        heading.animate(keyframes, option)
+    </script>
+</body>
+
+</html>

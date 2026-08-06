@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니담기와삭제</title>
+    <style>
+        body {
+            font-size: 18px;
+        }
+
+        .card-wrap {
+            width: 480px;
+            margin: 50px auto;
+        }
+
+        .card-wrap h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .card-wrap ul li {
+            padding: 15px 0;
+            font-weight: 500;
+            border-bottom: 2px dotted #ccc;
+        }
+
+        .card-wrap #info {
+            font-size: 20px;
+            padding: 25px;
+            border-radius: 15px;
+            background: #dedede;
+            margin-top: 50px;
+        }
+
+        .delBtn {
+            margin-top: 30px;
+            padding: 10px 30px;
+            border-radius: 5px;
+            background: #0f314d;
+            font-size: 17px;
+            font-weight: 500;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-wrap">
+        <h2>🛒상품 목록</h2>
+        <ul>
+            <li data-name="우드캔들" data-price='25000' onclick="showInfo(this)">우드캔들</li>
+            <li data-name="무드조명" data-price='38000' onclick="showInfo(this)">무드조명</li>
+            <li data-name="블라우스" data-price='108000' onclick="showInfo(this)">블라우스</li>
+            <li data-name="수분크림" data-price='28000' onclick="showInfo(this)">수분크림</li>
+        </ul>
+        <div id="info">
+            <p>클릭한 상품을 장바구니에 담았습니다.</p>
+        </div>
+    </div>
+    <script>
+        function showInfo(el) {
+            //console.log(el)
+            const name = el.dataset.name;
+            //console.log(name)
+            const price = Number(el.dataset.price)
+            //console.log(typeof (price)) dataset로 가져온 price는 string(문자형)이므로 계산을 하기 위해서는 number(숫자형)으로 변환을 해야함.
+
+            const infoBox = document.querySelector("#info");
+
+            infoBox.innerHTML = `
+         <p><strong>상품명 :</strong> ${name}</p>
+         <p><strong>가격 :</strong> ${price}</p>
+         <button class = 'delBtn' onclick = "deleteItem(this)">삭제</button>
+        `
+            /* 
+                삭제버튼을 눌렀을 때 어떤 li를 삭제해야할지 모르기
+                떄문에 지금 클릭한 li를 저장시킴.
+            */
+            infoBox.savedEl = el;
+            /* 
+                savedEl은 유저가 임의로 만든 이름으로
+                infoBox의 속성처럼 사용하기 위해서 만듦.
+
+                infoBox.apple - el와 같이 임의로 이름을
+                만들 수 있지만 속성의 기능을 추측할 수 있도록
+                연관성 있는 이름을 주는게 좋다.
+            */
+        }
+
+        //삭제버튼을 누르면 실행
+        function deleteItem() {
+            const infoBox = document.querySelector("#info");
+            const targetLi = infoBox.savedEl;
+            console.log("꺼내온값 :", targetLi)
+
+            if (targetLi) {
+                targetLi.remove()
+            }
+        }
+    </script>
+</body>
+
+</html>
