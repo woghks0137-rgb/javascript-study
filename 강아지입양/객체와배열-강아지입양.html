@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체와 배열을 활용한 페이지</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="inner">
+            <h1>Happy Dog</h1>
+            <p>새로운 가족을 기다리는 강아지들을 만나보세요.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="dog-section">
+            <div class="inner">
+                <div class="section-title">
+                    <span>OUR FRIENDS</span>
+                    <h2>입양을 기다리는 친구들</h2>
+                    <p>카드의 자세히 버튼을 눌러보세요</p>
+                </div>
+
+                <!-- js로 출력되는 영역 -->
+                <div id="dogList" class="dog-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 상세정보모달 -->
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <button id="closeBtn" class="close-btn ok" type="button">
+                닫기
+            </button>
+
+            <!--  js로 상세정보 출력 -->
+            <div id="detail"></div>
+        </div>
+    </div>
+</body>
+
+</html>

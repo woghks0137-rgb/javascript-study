@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+body {
+    background: #f5f6f8;
+    color: #333;
+}
+
+/* 전체 콘텐츠 영역 */
+.wrap {
+    width: 1200px;
+    margin: 100px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro {
+    text-align: center;
+    font-size: 18px;
+    background: skyblue;
+    color: #f5f6f8;
+    margin-bottom: 50px;
+}
+
+/* 카드 목록 */
+.car-list {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.car-list .car-card {
+    padding: 25px;
+}
+
+.car-list .car-card>* {
+    margin-bottom: 25px;
+}

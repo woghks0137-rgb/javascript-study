@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 추가와 삭제</title>
+
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        li {
+            font-size: 18px;
+            line-height: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>자바스크립트 노트 추가/삭제</h1>
+    <ul>
+        <li>DOM 요소 이해하기</li>
+        <li>점심 시간</li>
+        <li>팀플 열심히 하기</li>
+    </ul>
+    <div class="js">바닐라 자바스크립트</div>
+    <div id="js2" class="js">리액트</div>
+    <div class="js">뷰</div>
+
+    <button id="removeBtn">삭제</button>
+
+    <script>
+        //======== 1. 새로운 노드 만들기 ==========
+        /* 
+            createElement()
+            - 새로운 html 생성
+        */
+        const newLi = document.createElement('li')
+        newLi.className = 'new-li'; //클래스를 붙여줌
+
+        //========== 2. 텍스트 노드 만들기 ============
+        /* 
+             createTextNode() - el 안에 들어갈 텍스트를 생성
+        */
+        const textNode = document.createTextNode("자바스크립트 너무 재미있어요.");
+        console.log(textNode)
+
+        //========= 3. 부모 자식 노드 결합 =============
+        /* 
+            appendChild() - 부모요소의 마지막 자식 요소로 새 노드를 추가
+        */
+        newLi.appendChild(textNode);
+
+
+        //========= 4. body에 새로운 요소 추가 =============
+        document.body.appendChild(newLi);
+
+        //strong 태그를 생성하고 즐점~~~~ 텍스트 추가해서 body에 출력
+
+        const newStrong = document.createElement("strong");
+        const strongNode = document.createTextNode("즐점~~~~~");
+        newStrong.appendChild(strongNode);
+        document.body.appendChild(newStrong)
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지반복출력</title>
+    <style>
+        #grid img {
+            width: 300px;
+            justify-self: center;
+            object-fit: cover;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>갤러리</h2>
+        <div id="grid">
+
+        </div>
+    </div>
+
+
+    <script>
+        const grid = document.querySelector("#grid");
+        const pics = [
+            "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1527061011665-3652c757a4d4?w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1613539246066-78db6ec4ff0f?w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1541275055241-329bbdf9a191?w=500&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1614791199038-6869a104fe5f?w=500&auto=format&fit=crop"
+        ]
+        for (let pic of pics) {
+            console.log(pic)
+            grid.innerHTML += `<img src="${pic}">`;
+
+        }
+
+    </script>
+</body>
+
+</html>
