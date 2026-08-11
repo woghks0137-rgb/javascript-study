@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털시계</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+
+        #clock {
+            width: 200px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #cdcdcd;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clock"></div>
+
+    <script>
+        const clock = document.querySelector("#clock");
+
+
+        function showClock() {
+            //함수가 실행될 때마다 현재 시간을 다시 생성
+            const now = new Date();
+            console.log(now)
+
+            const hour = String(now.getHours()).padStart(2, "0");
+            const min = String(now.getMinutes()).padStart(2, "0");
+            const sec = String(now.getSeconds()).padStart(2, "0");
+
+            clock.textContent = `${hour}:${min}:${sec}`
+        }
+        showClock();
+        setInterval(showClock, 1000); //1초에 한 번씩 showClock함수를 실행
+
+        function hello() {
+            console.log("안녕하세요")
+        }
+        const timer1 = setInterval(hello, 1500)
+        const timer2 = setInterval(hello, 2000)
+        const timer3 = setInterval(hello, 3000)
+        console.log(timer1)
+        console.log(timer2)
+        console.log(timer3)
+        clearInterval(timer2)
+    </script>
+</body>
+
+</html>

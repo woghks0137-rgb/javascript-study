@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디데이</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dday-box">
+        <h2>수료일까지</h2>
+        <strong id="dday"></strong>
+    </div>
+
+    <script>
+        const today = new Date(); //데이트 객체를 새로 생성해서 today 변수에 저장
+
+        //목표 날짜
+        const targetDate = new Date(2026, 10, 26);
+        console.log(targetDate)
+        //두 날짜의 차이 
+
+        const gap = targetDate - today;
+        //console.log(gap)
+
+        //.ceil() - 소수점 이하는 무조건 올림
+        const result = Math.ceil(
+            gap / (1000 * 60 * 60 * 24)
+            /* 
+            1000= 1s
+            1000 * 60 -> 1분
+            1000 * 60 * 60 -> 1시간
+            1000 * 60 * 60 * 24 ->
+            */
+        );
+        const dday = document.querySelector("#dday");
+        dday.textContent = `d-${result} `
+
+    </script>
+</body>
+
+</html>

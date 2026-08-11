@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 내장객체</title>
+    <style>
+        body {
+            padding: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="date-box">
+        <h1>오늘은?</h1>
+        <p id="today"></p>
+        <h2 id="clock"></h2>
+    </div>
+    <script>
+        const now = new Date(); //현재 날짜와 시간
+        /* console.log(now) */
+
+        //연/월/일
+        const year = now.getFullYear()
+        const month = now.getMonth() + 1 //month의 시작월이 0부터 시작이 되므로 우리형식으로 맞추기 위해서는 +1을 해줘야한다.
+        const date = now.getDate()
+        const day = now.getDay()
+        const today = document.querySelector("#today");
+
+        const days = [
+            "일요일",
+            "월요일",
+            "화요일",
+            "수요일",
+            "목요일",
+            "금요일",
+            "토요일",
+
+        ]
+        console.log(days[2])
+        console.log(`현재 날짜는 ${year}년 ${month}월 ${date}일 ${days[day]}입니다.`)
+        today.textContent = `현재 날짜는 ${year}년 ${month}월 ${date}일 ${days[day]}입니다.`
+
+        //현재 시간 정보
+        const hour2 = typeof (now.getHours())
+        const hour = String(now.getHours()).padStart(2, "0");
+        const min = String(now.getMinutes()).padStart(2, "0");
+        const sec = String(now.getSeconds()).padStart(2, "0");
+
+        document.querySelector("#clock").textContent = `
+        현재 시간은${hour}시 ${min}분 ${sec}초입니다.
+        `
+        console.log('hour2:', hour2)
+        console.log('hour:', hour)
+    </script>
+</body>
+
+</html>

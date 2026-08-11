@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시작정지버튼</title>
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        .timer-box {
+            padding: 50px;
+            text-align: center;
+        }
+
+        #count {
+            margin-bottom: 30px;
+            font-size: 70px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 5px;
+            border: 0;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #startBtn {
+            background: steelblue;
+            color: #fff;
+        }
+
+        #stopBtn {
+            background: crimson;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer-box">
+        <h1 id="count">0</h1>
+        <button id="startBtn">START</button>
+        <button id="stopBtn">STOP</button>
+    </div>
+
+    <script>
+        const countText = document.querySelector("#count");
+        const startBtn = document.querySelector("#startBtn");
+        const stopBtn = document.querySelector("#stopBtn");
+
+        let count = 0;
+        let timer = null
+        function countUp() {
+            count++
+            countText.textContent = count
+            console.log(count)
+        }
+        //startBtn을 클릭하면 1초마다 자동으로 count++가 되도록 구현
+        startBtn.addEventListener("click", () => {
+            if (timer == null) {
+                timer = setInterval(countUp, 100)
+            }
+
+        })
+        stopBtn.addEventListener("click", () => {
+            clearInterval(timer)
+            timer = null
+        })
+        countUp()   
+    </script>
+</body>
+
+</html>
