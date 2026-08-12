@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입유효성검사</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+
+    <style>
+        button,
+        input {
+            font: inherit;
+        }
+
+        .join-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .join-form {
+            width: 100%;
+            max-width: 480px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .08);
+        }
+
+        .title {
+            margin-bottom: 35px;
+        }
+
+        .title span {
+            color: #4f46e5;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .title h1 {
+            margin: 8px 0;
+        }
+
+        .title p {
+            color: #888;
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #4f46e5;
+        }
+
+        /* 오류가 발생한 input */
+        .form-group input.fail {
+            border-color: #e74c3c;
+        }
+
+        .error {
+            min-height: 18px;
+            margin: 6px 0 0;
+            color: #e74c3c;
+            font-size: 13px;
+        }
+
+        .agree {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 15px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="join-wrap">
+        <form action="" id="joinForm" class="join-form">
+            <div class="title">
+                <span>JOIN US</span>
+                <h1>회원가입</h1>
+                <p>새로운 계정을 만들어보세요</p>
+            </div>
+
+            <div class="form-group">
+                <label for="userName">이름</label>
+                <input type="text" placeholder="이름을 입력하세요" id="userName">
+                <p class="error" id="nameError"></p>
+            </div>
+
+            <!-- 이메일 -->
+            <div class="form-group">
+                <label for="userEmail">이메일</label>
+                <input type="email" placeholder="example@email.com" id="userEmail">
+                <p class="error" id="emailError"></p>
+            </div>
+
+            <!-- 비밀번호 -->
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" placeholder="6자이상 입력하세요">
+                <p class="error" id="passwordError"></p>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">비밀번호 확인</label>
+                <input type="password" id="passwordConfirm" placeholder="비밀번호를 다시 입력하세요">
+                <p class="error" id="confirmError"></p>
+            </div>
+
+            <!-- 약관 -->
+            <label for="agree">
+                <input type="checkbox" id="agree"> 개인정보 수집 및 이용에 동의합니다.
+            </label>
+            <p class="error" id="agreeError"></p>
+
+            <button type="submit">가입하기</button>
+        </form>
+    </main>
+
+    <script>
+        const joinForm = document.querySelector("#joinForm"),
+            userName = document.querySelector("#userName"),
+            userEmail = document.querySelector("#userEmail"),
+            password = document.querySelector("#password"),
+            passwordConfrim = document.querySelector("#passwordConfirm"),
+            agree = document.querySelector("#agree");
+
+
+        const nameError = document.querySelector("#nameError");
+        const emailError = document.querySelector("#emailError");
+        const passwordError = document.querySelector("#passwordError");
+        const confirmError = document.querySelector("#confirmError");
+        const agreeError = document.querySelector("#agreeError");
+
+        //전체 검사 결과 - 모든 검사가 완료되었을 때 + 에러가 없을 때
+        let isValid = true
+
+        joinForm.addEventListener("submit", (event) => {
+
+            // form 기본 전송 막기
+            event.preventDefault();
+
+
+            // 오류 메시지 초기화
+            nameError.textContent = '';
+            emailError.textContent = '';
+            passwordError.textContent = '';
+            confirmError.textContent = '';
+            agreeError.textContent = '';
+
+
+            // 이름 검사
+            if (userName.value === '') {
+                nameError.textContent = "이름을 입력해주세요";
+            }
+
+
+            // 이메일 검사
+            if (userEmail.value === '') {
+                emailError.textContent = "이메일을 입력해주세요";
+            }
+            else if (!userEmail.value.includes('@')) {
+                emailError.textContent = "올바른 이메일 형식이 아닙니다.";
+            }
+
+
+            // 비밀번호 검사
+            if (password.value.length < 6) {
+                passwordError.textContent = "비밀번호는 6자 이상 입력해주세요";
+            }
+
+
+            // 비밀번호 확인 검사
+            if (password.value !== passwordConfrim.value) {
+                confirmError.textContent = "비밀번호가 일치하지 않습니다.";
+            }
+
+
+            // 약관 검사
+            if (agree.checked === false) {
+                agreeError.textContent = "약관에 동의해주세요";
+                isValid = false
+            }
+
+            //모든 검사를 통과한 경우
+            if (isValid === true) {
+                alert("회원가입이 완료되었습니다.");
+
+                userName.value = '';
+                userEmail.value = '';
+                password.value = '';
+                passwordConfrim.value = '';
+                agree.checked = false
+            }
+
+        });
+    </script>
+</body>
+
+</html>

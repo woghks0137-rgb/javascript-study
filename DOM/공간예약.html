@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공간예약</title>
+    <style>
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        .reservation {
+            width: 1100px;
+            max-width: calc(100% - 40px);
+            margin: 70px auto;
+
+            display: grid;
+            grid-template-columns: 1fr 380px;
+
+            background: white;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 50px rgba(0, 0, 0, .08);
+        }
+
+        .form-area {
+            padding: 60px;
+        }
+
+        .title {
+            margin-bottom: 40px;
+        }
+
+        .title span,
+        .summary>span {
+            color: #7950f2;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .title h1 {
+            margin: 10px 0;
+            font-size: 36px;
+        }
+
+        .title p {
+            color: #888;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group>label,
+        .label-title {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            height: 50px;
+
+            padding: 0 15px;
+
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            outline: none;
+
+            background: white;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #7950f2;
+        }
+
+        .radio-group,
+        .check-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label,
+        .check-group label {
+            padding: 12px 15px;
+
+            background: #f5f5f7;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            height: 55px;
+
+            border: 0;
+
+            background: #7950f2;
+            color: white;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6741d9;
+        }
+
+
+        /* 오른쪽 예약 요약 */
+
+        .summary {
+            padding: 60px 40px;
+            background: #161616;
+            color: white;
+        }
+
+        .summary h2 {
+            margin: 10px 0 40px;
+        }
+
+        .summary-item {
+            padding: 20px 0;
+
+            display: flex;
+            justify-content: space-between;
+
+            border-bottom: 1px solid #333;
+        }
+
+        .summary-item span {
+            color: #aaa;
+        }
+
+        .summary-item strong {
+            max-width: 180px;
+
+            text-align: right;
+
+            font-size: 14px;
+        }
+
+        .total {
+            margin-top: 40px;
+        }
+
+        .total>span {
+            display: block;
+            margin-bottom: 10px;
+
+            color: #aaa;
+        }
+
+        .total strong {
+            font-size: 28px;
+        }
+    </style>
+    <script src="js/studio.js" defer></script>
+</head>
+
+<body>
+    <main class="reservation">
+        <!-- 왼쪽 -->
+        <section class="form-area">
+            <div class="title">
+                <span>RESERVATION</span>
+                <h1>스튜디오 예약</h1>
+                <p>원하는 공간과 이용시간을 선택해주세요.</p>
+            </div>
+            <form action="" id="reservationForm">
+                <div class="form-group">
+                    <label for="name">예약자</label>
+                    <input type="text" id="name" placeholder="이름을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label for="room">공간선택</label>
+                    <select name="room" id="room">
+                        <option value="">공간을 선택해주세요</option>
+                        <option value="A Studio">A Studio</option>
+                        <option value="B Studio">B Studio</option>
+                        <option value="C Studio">C Studio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p class="label-title">이용시간</p>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="time" value="1" checked> 1시간
+                        </label>
+                        <label>
+                            <input type="radio" name="time" value="2"> 2시간
+                        </label>
+                        <label>
+                            <input type="radio" name="time" value="3"> 3시간
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <p class="label-title">추가옵션</p>
+                        <label>
+                            <input type="checkbox" class="option" value="Lighting" data-price="10000"> 조명장비 +10,000원
+                        </label>
+                        <label>
+                            <input type="checkbox" class="option" value="Camera" data-price="20000"> 카메라대여 +20,000원
+                        </label>
+                        <label>
+                            <input type="checkbox" class="option" value="Mic" data-price="5000"> 마이크 +5,000원
+                        </label>
+                    </div>
+                </div>
+                <button type="submit">예약신청하기</button>
+                <input type="button" value="취소하기">
+            </form>
+        </section>
+
+        <!-- 오른쪽 결과 -->
+        <aside class="summary">
+            <span>YOUR RESEVATION</span>
+            <h2>예약정보</h2>
+            <div class="summary-item">
+                <span>공간</span>
+                <strong id="roomResult">선택해주세요</strong>
+            </div>
+            <div class="summary-item">
+                <span>이용시간</span>
+                <strong id="timeResult">1시간</strong>
+            </div>
+            <div class="summary-item">
+                <span>추가옵션</span>
+                <strong id="optionResult">없음</strong>
+            </div>
+
+            <div class="total">
+                <span>예상 결제 금액</span>
+                <strong>
+                    <span id="totalPrice">30,000</span>원
+                </strong>
+            </div>
+        </aside>
+    </main>
+</body>
+
+</html>
