@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map함수 예제</title>
+</head>
+
+<body>
+    <h1>추천 여행지</h1>
+    <div id="travelList"></div>
+    <script>
+        const prices = [1000, 2000, 3000]
+        console.log(prices)
+
+        const result = prices.map((price) => {
+            //console.log(`price:, ${price}`)
+            return price + 500
+        })
+        console.log(`result`)
+
+        //이름 앞에 번호 붙이기
+        const students = ['다혜', '재환', '혜영', '동현']
+
+        const studentList = students.map((student, index) => {
+            console.log(`student : ,${student}/index :${index} `)
+            return `${index + 1}번 ${student}`
+        })
+        console.log(studentList)
+
+        //object(객체) -> 일반객체 {속성:값}/배열[]/Date()/그 외 객체
+
+        //여행지 카드 만들기
+        const travels = [
+            {
+                name: "제주도",
+                desc: "푸른 바다와 뜨거운 태양 ~"
+            },
+            {
+                name: "경주",
+                desc: "역사와 문화가 살아있는 도시에요."
+            },
+            {
+                name: "부산",
+                desc: "바다와 맛집을 함께 즐길 수 있어요"
+            }
+        ]
+        console.log("travels:", travels)
+        const travelList = document.querySelector("#travelList");
+
+        const cards = travels.map((travel) => {
+            console.log('travel:', travel) //객체
+            return `
+                <div class="card">
+                    <h2>${travel.name}</h2>
+                    <p>${travel.desc}</p>
+                </div>
+            `
+        })
+        travelList.innerHTML = cards
+    </script>
+
+</body>
+
+</html>

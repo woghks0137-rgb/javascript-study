@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter 함수 예제</title>
+</head>
+
+<body>
+    <h1>상품 목록</h1>
+    <button id="allBtn">전체보기</button>
+    <button id="fashionBtn">패션</button>
+
+    <div id="productList"></div>
+
+    <script>
+        const products = [
+            {
+                name: "반팔 티셔츠",
+                category: "패션"
+            },
+            {
+                name: "청바지",
+                category: "패션"
+            },
+            {
+                name: "무선 이어폰",
+                category: "전자제품"
+            },
+            {
+                name: "키보드",
+                category: "전자제품"
+            }
+        ];
+        //상품을 화면에 보여주세요.
+        const productList = document.querySelector("#productList");
+        const allBtn = document.querySelector("#allBtn");
+        const fashionBtn = document.querySelector("#fashionBtn");
+
+        function showProducts(items) {
+            //console.log("items", items)
+            const result = items.map((item) => {
+                //console.log('item', item)
+                return `
+                    <div>
+                        <h2>${item.name}</h2>
+                        <p>${item.category}<p>    
+                    </div>
+                `;
+            })
+            //console.log('result', result)
+            productList.innerHTML = result.join("")
+        }
+        //전체 상품 보기 
+        showProducts(products)
+
+        //패션 버튼 클릭
+        fashionBtn.addEventListener("click", () => {
+            //filter()
+            const result2 = products.filter((product) => {
+                return product.category === "패션"
+
+            })
+            //console.log(result2)
+            showProducts(result2)
+        })
+        allBtn.addEventListener("click", () => {
+            showProducts(products)
+        })
+    </script>
+</body>
+
+</html>

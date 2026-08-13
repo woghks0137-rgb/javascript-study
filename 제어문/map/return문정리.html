@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>return문 정리</title>
+</head>
+
+<body>
+    <script>
+        //1-출력만 하기
+        function add(a, b) {
+            console.log(a + b)
+        }
+        add(10, 20); //30
+
+        //2-결과 돌려주기
+        function add2(a, b) {
+            return a + b;
+        }
+        const result = add2(10 + 20);
+        console.log(`result = ${result}`)
+
+        //3_값 재사용
+        function getTotal(price, count) {
+            return price * count;
+        }
+        const total = getTotal(5000, 3);
+
+        if (total >= 10000) {
+            console.log("5% 쿠폰 발급됐습니다.")
+        }
+        //4_if+return
+        function checkPrice(price) {
+            if (price >= 50000) {
+                return "고가상품"
+            }
+            return "일반상품"
+        }
+        console.log(checkPrice(30000))
+    </script>
+</body>
+
+</html>

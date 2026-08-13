@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리턴문 예제</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        body>* {
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 200px;
+            height: 40px;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>주문계산</h1>
+    <input type="number" id="price" placeholder="상품가격">
+    <input type="number" id="count" placeholder="수량">
+
+    <button id="calcBtn">계산하기</button>
+    <p id="result">결과가 표시됩니다.</p>
+
+    <script>
+        const priceInput = document.querySelector("#price"),
+            countInput = document.querySelector("#count"),
+            calcBtn = document.querySelector("#calcBtn"),
+            result = document.querySelector("#result");
+
+        //총가격을 계산하는 함수
+        function getTotal(price, count) {
+            //계산 결과를 함수밖으로 돌려줌
+            return price * count
+        }
+
+        calcBtn.addEventListener('click', () => {
+            //input의 값을 숫자로 변환
+            const price = Number(priceInput.value);
+            const count = Number(countInput.value);
+            //console.log(typeof (price, count))
+            //함수실행
+            const total = getTotal(price, count);
+
+            result.textContent = `
+            총 주문금액: ${total.toLocaleString()}
+        `
+        })
+
+        //실행종료
+        function test() {
+            console.log('1번')
+            return;
+            console.log('2번')
+        }
+        test()
+        //if문과 return이 만났을 때
+        function checkAge(age) {
+            if (age < 20) {
+                return "미성년자입니다"
+            } else {
+                return "성인입니다"
+            }
+        }
+        const result1 = checkAge(17)
+        const result2 = checkAge(25)
+
+        console.log('result1', result1)
+        console.log('result2', result2)
+
+        function sm(a, b) {
+            console.log(a + b)
+        }
+        const sum2 = sum(10, 20);
+        console.log("sum2 :" sum2)
+
+
+    </script>
+</body>
+
+</html>

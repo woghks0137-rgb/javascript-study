@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter 함수</title>
+</head>
+
+<body>
+    <script>
+        const scores = [80, 45, 90, 60, 30];
+
+        const result = scores.filter((score) => {
+            return score >= 60
+        })
+        console.log('filter로 만든 배열 :', result);
+
+        const fruits = ["사과", "배", "복수아", "딸기", "포도"]
+        const result2 = fruits.filter((fruit) => {
+            return fruit === "사과"
+        })
+        console.log(result2)
+
+        //가구만 출력
+        const products = [
+            {
+                name: "노트북",
+                price: 1200000,
+                category: "전자제품"
+            },
+            {
+                name: "키보드",
+                price: 80000,
+                category: "전자제품"
+            },
+            {
+                name: "의자",
+                price: 150000,
+                category: "가구"
+            },
+            {
+                name: "책상",
+                price: 200000,
+                category: "가구"
+            }
+        ];
+        const result3 = products.filter((product) => {
+            return product.category === "가구"
+        })
+        console.log(result3)
+    </script>
+</body>
+
+</html>
