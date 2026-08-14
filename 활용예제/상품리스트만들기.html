@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품리스트 만들기 연습</title>
+</head>
+
+<body>
+    <div id="result">선택된 목록이 없어용</div>
+    <div id="count">0개</div>
+    <img src="img/타임라인1990 메인 사진.webp" alt="">
+
+    <script>
+        const result = document.querySelector("#result");
+        const count = document.querySelector("#count");
+
+        const products = [
+            {
+                name: "노트북",
+                category: "전자제품",
+                price: "1200000"
+            },
+            {
+                name: "마우스",
+                category: "전자제품",
+                price: "35000"
+            },
+            {
+                name: "후드티",
+                category: "패션",
+                price: "49000"
+            },
+            {
+                name: "텀블러",
+                category: "생활",
+                price: "18000"
+            }
+        ]
+
+        const product = products.map((item) => {
+            //console.log(item)
+            return `
+            <p>이름 : ${item.name}</p>
+            <p>종류 :  ${item.category}</p>
+            <p>가격 :  ${item.price}</p>
+            `
+        })
+        result.innerHTML = product.join("")
+        count.innerHTML = ` ${products.length} 개`
+
+    </script>
+</body>
+
+</html>

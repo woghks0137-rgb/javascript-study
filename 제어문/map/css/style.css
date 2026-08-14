@@ -1,0 +1,285 @@
+@charset "utf-8";
+
+body {
+    background: skyblue;
+    color: #222;
+}
+
+main {
+    background: white;
+    padding: 30px;
+}
+
+button,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.inner {
+    width: min(1100px, 90%);
+    margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: #111;
+    color: white;
+    padding: 60px 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #aaa;
+}
+
+
+
+
+/* =========================
+   CONTROL
+========================= */
+
+.control-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 50px 0 20px;
+}
+
+.category-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.category-btn {
+    border: 1px solid #ddd;
+    background: white;
+
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.category-btn:hover {
+    background: #eee;
+}
+
+.category-btn.active {
+    background: #111;
+    color: white;
+    border-color: #111;
+}
+
+
+#sortSelect {
+    padding: 10px 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    background: white;
+}
+
+/* =========================
+   RESULT
+========================= */
+
+.result-info {
+    margin-bottom: 20px;
+    color: #777;
+}
+
+.result-info strong {
+    color: #111;
+}
+
+
+/* =========================
+   PRODUCT LIST
+========================= */
+
+.product-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    padding-bottom: 80px;
+}
+
+/* 상품 카드 */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* 상품 정보 */
+.product-image {
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 70px;
+
+    background: #eee;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.category {
+    display: inline-block;
+
+    font-size: 13px;
+    color: #777;
+
+    margin-bottom: 10px;
+}
+
+.product-info h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.description {
+    font-size: 14px;
+
+    color: #777;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.product-bottom {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 18px;
+}
+
+/* 상세보기 */
+
+.detail-btn {
+    border: none;
+
+    background: #111;
+    color: white;
+
+    padding: 8px 15px;
+
+    border-radius: 5px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0, 0, 0, 0.6);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+/* 모달 활성화 */
+
+.modal.show {
+    display: flex;
+}
+
+
+.modal-content {
+    position: relative;
+
+    width: min(500px, 100%);
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 40px;
+}
+
+.close-btn {
+    position: absolute;
+
+    right: 20px;
+    top: 15px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+}
+
+
+.detail-image {
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #eee;
+    font-size: 80px;
+    margin-bottom: 25px;
+}
+
+
+#detail h2 {
+    margin-bottom: 10px;
+}
+
+
+#detail .detail-description {
+    color: #777;
+
+    line-height: 1.7;
+
+    margin: 20px 0;
+}
+
+
+#detail .detail-price {
+    font-size: 24px;
+}

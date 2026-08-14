@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach와 map 함수 비교 </title>
+</head>
+
+<body>
+    <script>
+        const numbers = [10, 20, 30, 40]
+
+        //==============================
+        // forEach 
+        //==============================
+
+        const result1 = numbers.forEach((number) => {
+            console.log(number)
+            console.log(number * 2)
+            return number * 2
+        })
+        console.log("forEach 결과")
+        console.log("result1", result1)
+
+        //==============================
+        // map()
+        //==============================
+        const result2 = numbers.map((number) => {
+            console.log(number * 2);
+            return number * 2;
+        })
+        console.log("map 결과")
+        console.log("result2 :", result2)
+
+    </script>
+</body>
+
+</html>

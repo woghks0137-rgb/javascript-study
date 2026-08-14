@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품상세보기</title>
+    <style>
+        body {
+            background: gray;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: 50px auto;
+        }
+
+        #productList {
+            display: flex;
+            gap: 20px;
+        }
+
+        .product {
+            width: 200px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .product h2 {
+            font-size: 18px;
+        }
+
+        .product button {
+            padding: 8px 15px;
+            border: 0;
+            background: #222;
+            color: white;
+            cursor: pointer;
+        }
+
+        #detail {
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>신상품</h1>
+        <div id="productList"></div>
+
+        <div id="detail">
+            <p>상품을 선택해주세요</p>
+        </div>
+    </div>
+
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "반팔 티셔츠",
+                price: 29000,
+                category: "패션",
+                description: "여름에 편하게 입을 수 있는 기본 티셔츠입니다."
+            },
+            {
+                id: 2,
+                name: "청바지",
+                price: 59000,
+                category: "패션",
+                description: "데일리 코디에 활용하기 좋은 청바지입니다."
+            },
+            {
+                id: 3,
+                name: "무선 이어폰",
+                price: 89000,
+                category: "전자제품",
+                description: "가볍고 편리하게 사용할 수 있는 무선 이어폰입니다."
+            }
+        ];
+
+        //선택자 변수
+        const productList = document.querySelector("#productList");
+        const detail = document.querySelector("#detail");
+
+        //상품목록 출력
+        products.forEach((product) => {
+            //console.log('product:', product.description)
+
+            productList.innerHTML += `
+                <div class = "product">
+                    <h2>${product.name}</h2>
+                    <p>${product.price.toLocaleString()}원</p>
+                    <button class = "detailBtn" data-id = "${product.id}">자세히보기</button>
+                        
+                    
+                </div>  
+                 `
+        });
+        const detailBtns = document.querySelectorAll(".detailBtn");
+        //console.log(detailBtns)
+
+        //각각의 버튼마다 클릭 이벤트 등록
+        detailBtns.forEach((button) => {
+            //console.log("button", button)
+            button.addEventListener("click", () => {
+                //html에서 data-id 가져오기  
+                const id = Number(button.dataset.id)
+                //console.log(id, typeof (id))
+
+                //id와 같은 상품 찾기 - find()
+                const product = products.find((item) => {
+                    return item.id === id;
+                })
+                console.log(product)
+
+                //찾은 상품 출력
+                detail.innerHTML = `
+                    <h2>${product.name}</h2>
+                    <p>카테고리 : ${product.category}</p>
+                    <p>가격 : ${product.price.toLocaleString()}원</p>
+                    <p>${product.description}</p>
+                `
+            })
+        })
+    </script>
+</body>
+
+</html>

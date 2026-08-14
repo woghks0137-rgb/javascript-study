@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find 함수</title>
+</head>
+
+<body>
+    <h1>상품검색</h1>
+    <button id="searchBtn">무선이어폰찾기</button>
+    <div id="result"></div>
+    <script>
+        /* 
+            -find() - 조건에 맞는 것 하나 찾기
+            -filter() - 조건에 맞는 것들을 찾은 다음 새 배열로 생성
+            -sort() - 데이터의 순서
+        */
+        const numbers = [10, 20, 30, 40]
+        const result = numbers.find((number) => {
+            console.log(number)
+            return number >= 30
+        })
+        console.log(result)
+
+        const result2 = numbers.filter((number) => {
+            console.log(number)
+            return number >= 30
+        })
+        console.log(result2);
+
+
+        //예제
+        const products = [
+            {
+                id: 1,
+                name: "반팔티셔츠",
+                price: 29000
+            },
+            {
+                id: 2,
+                name: "청바지",
+                price: 60000
+            },
+            {
+                id: 3,
+                name: "무선이어폰",
+                price: 89000
+            }
+        ]
+
+        const searchBtn = document.querySelector("#searchBtn");
+        const resultText = document.querySelector("#result");
+
+        searchBtn.addEventListener("click", () => {
+            //name이 무선 이어폰인 요소를 찾음
+            const product = products.find((item) => {
+                console.log(item)
+                return item.name === "무선이어폰"
+            })
+            console.log(product)
+
+            resultText.innerHTML = `
+                <h2>${product.name}</h2>
+                <p>${product.price.toLocaleString()}원</p>
+            `
+        })
+
+    </script>
+</body>
+
+</html>

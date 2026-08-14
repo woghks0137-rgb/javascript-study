@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품리스트</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <div class="inner">
+        <h1>DAILY SHOP</h1>
+        <p>나에게 필요한 아이템을 찾아보세요.</p>
+    </div>
+
+    <main class="inner">
+        <!-- 필터 정렬 영역 -->
+        <section class="control-area">
+            <div class="category--buttons">
+                <button class="category-btn active" data-category="전체">전체</button>
+                <button class="category-btn active" data-category="패션">패션</button>
+                <button class="category-btn active" data-category="전자제품">전자제품</button>
+                <button class="category-btn active" data-category="생할">생활</button>
+            </div>
+
+            <!-- 정렬 -->
+            <select id="sortSelect">
+                <option value="default">기본순</option>
+                <option value="low">낮은 가격순</option>
+                <option value="high">높은 가격순</option>
+            </select>
+        </section>
+
+
+        <!-- 상품개수 -->
+        <div class="result-info">
+            총 <strong id="productCount">0</strong>개의 상품
+        </div>
+
+
+        <!-- 상품목록 js로 출력 -->
+        <section class="product-list" id="productList"></section>
+
+        <!-- 상품상세 모달 -->
+        <div class="modal" id="detailModal">
+            <div class="modal-content">
+                <button class="close-btn" id="closeBtn">X</button>
+                <div id="detail"></div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
