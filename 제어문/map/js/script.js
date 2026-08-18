@@ -61,7 +61,7 @@ const products = [
 /* html요소 가져오기 */
 const productList = document.querySelector("#productList");
 const productCount = document.querySelector("#productCount");
-const categoryBtns = document.querySelector(".category-btn");
+const categoryBtns = document.querySelectorAll(".category-btn");
 const sortSelect = document.querySelector("#sortSelect");
 const detailModal = document.querySelector("#detailModal");
 const detail = document.querySelector("#detail");
@@ -70,9 +70,9 @@ const closeBtn = document.querySelector("#closeBtn");
 //현재 선택된 카테고리
 let currentCategory = "전체";
 
-//상품 출력 함수 : map() -> 배열 데이털ㄹ html 문자열로 변경해서 화면에 출력
+//상품 출력 함수 : map() -> 배열 데이터를 html 문자열로 변경해서 화면에 출력
 function showProducts(items) {
-    console.log("화면에 출력할 상품 :", items)
+    // console.log("화면에 출력할 상품 :", items)
 
     /* map() - items 배열 안의 객체를 하나씩 꺼내서 상품객체 -> html 문자열로 변경 */
     const productHTML = items.map((product) => {
@@ -94,7 +94,7 @@ function showProducts(items) {
             </article>
         `
     })
-    console.log(productHTML);
+    //console.log(productHTML);
     productList.innerHTML = productHTML.join("");
 
     //현재 화면에 출력된 상품 개수
@@ -115,7 +115,116 @@ function showDetail(event) {
 
     //클릭한 버튼 가져오기
     const button = event.currentTarget;
+    /* data-id는 문자열이므로 id를 비교할 때는 숫자형Number()로 변경 */
+    const id = Number(button.dataset.id);
+    //console.log(id)
 
+    const product = products.find((product) => {
+        return product.id === id
+    })
+    //console.log(product)
+
+    /* 상세정보 출력 */
+    detail.innerHTML = `
+    <div class = "detail-image">
+        ${product.icon}
+    </div>
+    <span class="category">
+        ${product.category}
+    </span>
+    <h2>${product.name}</h2>
+    <p class = "description">${product.description}</p>
+    <p class = "price">${product.price.toLocaleString()}원</p>
+    `
+    detailModal.classList.add("show")
 
 }
+/* ==========================
+    카테고리 필터 이벤트
+============================*/
+
+for (let button of categoryBtns) {
+    console.log(categoryBtns)
+    button.addEventListener("click", () => {
+        /* 모든 버튼의 active 제거 */
+        for (let btn of categoryBtns) {
+            btn.classList.remove("active")
+        }
+        /* 클릭한 버튼에 active 추가 */
+        button.classList.add("active")
+
+        /* 선택한 카테고리 저장 */
+        currentCategory = button.dataset.category
+        console.log(currentCategory)
+
+        //화면에 다시 출력
+        updateProducts()
+    })
+}
+/* ==========================
+            정렬
+============================*/
+
+/* 이벤트 안에서 실행되는 함수를 선언할 때는()괄호를 쓰지 않는다.
+왜냐하면 이벤트가 발생되는 시점에서 함수가 실행되어야 하는데 함수선언()을 사용하면
+이벤트 발생 전에 함수가 실행돼서 결과가 다르게 출력될 수 있다. */
+sortSelect.addEventListener("change", () => { updateProducts })
+
+/* =========================================
+     filter() / sort() - 상품 업데이트
+===========================================*/
+
+function updateProducts() {
+    /* 
+        원본 배열 복사
+        sort()가 원본 배열을 변경하는 것을 막기 위해 복사본
+    */
+    let result = [...products];//spread  구문 - ES6 최신문법 -> 배열복사
+    //console.log('result:', result)
+
+    /* ===========================================
+     1. 카테고리 필터링 filter() 상품 업데이트
+    =============================================*/
+    if (currentCategory !== "전체") {
+        result = result.filter((product) => {
+            return (
+                product.category === currentCategory
+            )
+        })
+    }
+    /* ==========================================================
+                     2. sort() - 상품 업데이트
+    ============================================================*/
+    /* 낮은 가격순 */
+    if (sortSelect.value === "low") {
+        result.sort((a, b) => {
+            return (a.price - b.price)
+        })
+    }
+    /* 높은 가격순 */
+    if (sortSelect.value === "high") {
+        result.sort((a, b) => {
+            return (b.price - a.price)
+        })
+    }
+
+    /* map() - 최종결과 출력 */
+    showProducts(result)
+
+}
+
+
+/* ==================================
+            모달 닫기
+====================================*/
+closeBtn.addEventListener("click", (event) => {
+    detailModal.classList.remove("show")
+})
+
+detailModal.addEventListener("click", (event) => {
+    if (event.target === detailModal) {
+        detailModal.classList.remove("show")
+    }
+})
+
 

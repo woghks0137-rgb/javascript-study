@@ -10,19 +10,25 @@
 </head>
 
 <body>
-    <div class="inner">
-        <h1>DAILY SHOP</h1>
-        <p>나에게 필요한 아이템을 찾아보세요.</p>
-    </div>
-
+    <header>
+        <div class="inner">
+            <h1>DAILY SHOP</h1>
+            <p>나에게 필요한 아이템을 찾아보세요.</p>
+        </div>
+    </header>
     <main class="inner">
+
+        <!-- 검색 -->
+        <section class="search-area">
+            <input type="text" id="searchInput" placeholder="여행지 이름을 검색해주세요.">
+        </section>
         <!-- 필터 정렬 영역 -->
         <section class="control-area">
             <div class="category--buttons">
                 <button class="category-btn active" data-category="전체">전체</button>
                 <button class="category-btn active" data-category="패션">패션</button>
                 <button class="category-btn active" data-category="전자제품">전자제품</button>
-                <button class="category-btn active" data-category="생할">생활</button>
+                <button class="category-btn active" data-category="생활">생활</button>
             </div>
 
             <!-- 정렬 -->

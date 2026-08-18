@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 body {
-    background: skyblue;
     color: #222;
 }
 
@@ -44,8 +43,25 @@ header p {
     color: #aaa;
 }
 
+/* =========================
+   SEARCH
+========================= */
+.search-area {
+    margin-top: 50px;
+}
 
+#searchInput {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    outline: none;
+}
 
+#searchInput:focus {
+    border-color: #333;
+}
 
 /* =========================
    CONTROL

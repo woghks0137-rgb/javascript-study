@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review</title>
+</head>
+
+<body>
+    <h1>상품 데이터 출력 복습</h1>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "반팔 티셔츠",
+                category: "패션",
+                price: 29000
+            },
+            {
+                id: 2,
+                name: "청바지",
+                category: "패션",
+                price: 59000
+            },
+            {
+                id: 3,
+                name: "무선 이어폰",
+                category: "전자제품",
+                price: 89000
+            },
+            {
+                id: 4,
+                name: "키보드",
+                category: "전자제품",
+                price: 49000
+            }
+        ];
+        //1 - map() - 모든 상품에서 필요한 값을 꺼낼 때 새로운 배열로 생성
+        const names = products.map((product) => {
+            //console.log('product', product)
+            return product.name;
+        })
+        console.log('names', names)
+
+        const prices = products.map((product) => {
+            return product.price.toLocaleString() + "원"
+        })
+        console.log('prices:', prices)
+
+        //2_filter() - 조건에 맞는 여러개의 상품을 찾아서 새 배열로 만든다.
+        //패션 상품만
+        const fashionProducts = products.filter((product) => {
+            return product.category === "패션"
+        })
+        console.log("fashionProducts: ", fashionProducts)
+        //5만원 이상인 상품
+        const expensiveProducts = products.filter((product) => {
+            return product.price >= 50000
+        })
+            .map((products) => {
+                return products.name
+            })
+        console.log("expensiveProducts", expensiveProducts)
+
+        //3_find() 하나만 찾기
+        const product = products.find((product) => {
+            return product.id === 3;
+        })
+        console.log(product)
+
+        //filter()와 find()의 차이
+        const result1 = products.filter((product) => {
+            return product.category === "패션"
+        })
+        const result2 = products.find((product) => {
+            //return product.id === 3
+            return product.category === "패션"
+        })
+
+        console.log("fliter", result1)
+        console.log("find ", result2)
+
+        //4 - sort() 상품순서 변경
+        //상품 가격이 낮은 순으로 정렬
+        // a- 비교할 상품 / b- 그 다음 비교할 상품
+        const sortProduct = products.sort((a, b) => {
+            //a-b => 숫자 오름차순
+            //b-a => 숫자 내림차순
+            return a.price - b.price
+        })
+        console.log(sortProduct)
+    </script>
+</body>
+
+</html>
