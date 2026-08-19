@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f6f8;
+    color: #222;
+}
+
+header {
+    background: #111827;
+    color: white;
+    padding: 28px 20px;
+}
+
+header h1 {
+    max-width: 1000px;
+    margin: 0 auto 8px;
+    font-size: 28px;
+}
+
+header p {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #cbd5e1;
+}
+
+main {
+    width: min(1000px, calc(100% - 32px));
+    margin: 32px auto;
+}
+
+.control-area,
+.card,
+.panel {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+}
+
+.control-area {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input,
+select,
+button {
+    min-height: 42px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    padding: 0 12px;
+    font-size: 15px;
+}
+
+button {
+    cursor: pointer;
+    background: #111827;
+    color: white;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.price {
+    font-weight: 700;
+}
+
+.muted {
+    color: #6b7280;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    outline: 3px solid #93c5fd;
+}
