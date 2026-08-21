@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+li {
+    list-style: none;
+}
+
+header {
+    background: navy;
+    padding: 50px;
+}
+
+.text-group {
+    width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.inner {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.event-text::before {
+    display: inline-block;
+    width: 4px;
+    height: 40px;
+    background: black;
+    margin-right: 10px;
+    vertical-align: -15px;
+    content: '';
+
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.card {
+    width: 300px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.text-area {
+    background: lightblue;
+    padding: 20px;
+}
