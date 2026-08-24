@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬 스토레지</title>
+
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 24px;
+            background: #000;
+            color: #fff;
+        }
+
+        input {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>이름 저장하기</h1>
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요">
+
+    <button id="saveBtn">저장</button>
+    <button id="loadBtn">불러오기</button>
+    <button id="removeBtn">삭제</button>
+
+    <p class="result"></p>
+
+    <script>
+        //선택자
+        const nameInput = document.querySelector("#nameInput"),
+            saveBtn = document.querySelector("#saveBtn"),
+            loadBtn = document.querySelector("#loadBtn"),
+            removeBtn = document.querySelector("#removeBtn"),
+            result = document.querySelector(".result");
+
+        //저장하기
+        saveBtn.addEventListener("click", () => {
+            const userName = nameInput.value;
+            console.log("userName :", userName)
+
+            //localStrage.setItem('키(속성)' , '값')
+            localStorage.setItem("userName", userName)
+
+            result.textContent = "저장되었습니다."
+        })
+
+        //불러오기 : localStorage.getItem("key")
+        loadBtn.addEventListener("click", () => {
+            const savedName = localStorage.getItem("userName")
+            result.textContent = savedName
+        })
+
+        //삭제하기 : localStorage.removeItem("key")
+        removeBtn.addEventListener("click", () => {
+            localStorage.removeItem("userName")
+            result.textContent = "삭제되었습니다."
+        })
+    </script>
+
+</body>
+
+</html>

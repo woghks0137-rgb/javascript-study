@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 데이터</title>
+</head>
+
+<body>
+    <script>
+
+        const student = {
+            name: "수진",
+            age: 28,
+            course: "프론트엔드"
+        }
+        //json 데이터로 출력
+        const jsonStudent = JSON.stringify(student);
+        console.log(jsonStudent)
+        //javascript 데이터로 출력
+        const javaStudent = JSON.parse(jsonStudent)
+        console.log(javaStudent)
+
+        //배열 
+        const fruits = ["사과", "딸기", "바나나"]
+        const jsonFruits = JSON.stringify(fruits)
+        console.log(jsonFruits)
+        const newFruits = JSON.parse(jsonFruits);
+        console.log(newFruits)
+
+        newFruits.forEach((fruits) => {
+            console.log(fruits)
+        })
+
+
+    </script>
+
+</body>
+
+</html>

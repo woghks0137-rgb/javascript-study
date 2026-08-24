@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>저장된 이름 호출</title>
+    <style>
+        body {
+            padding: 100px;
+            text-align: center;
+        }
+
+        body * {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>사용자정보</h1>
+    <input type="text" id="nameInput" placeholder="이름을 입력하세요.">
+    <button id="saveBtn">저장하기</button>
+    <h2 id="welcome"></h2>
+
+    <script>
+        const nameInput = document.querySelector("#nameInput");
+        const saveBtn = document.querySelector("#saveBtn");
+        const welcome = document.querySelector("#welcome");
+
+        //저장되어있는 이름 가져오기
+        const savedName = localStorage.getItem("userName");
+
+        //저장된 이름이 있는 경우
+        if (savedName) {
+            welcome.textContent = `${savedName}님 반갑습니다.`
+        }
+
+        //저장버튼
+        saveBtn.addEventListener("click", () => {
+            const userName = nameInput.value;
+            localStorage.setItem("userName", userName);
+
+            //화면출력
+            welcome.textContent = `${savedName}님 반갑습니다`
+
+
+        })
+        localStorage.removeItem("userName")
+    </script>
+</body>
+
+</html>
