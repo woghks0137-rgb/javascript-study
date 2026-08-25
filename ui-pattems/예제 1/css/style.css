@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+body {
+    color: #222;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* header */
+.header {
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.header-inner {
+    position: relative;
+    max-width: 1400px;
+    height: 72px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 30px;
+    font-weight: 800;
+    color: steelblue;
+}
+
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.gnb ul {
+    display: flex;
+}
+
+.gnb a {
+    display: block;
+    padding: 0 24px;
+    font-size: 17px;
+}
+
+.util {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.search-btn {
+    padding: 10px 14px;
+    background: steelblue;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.menu-btn {
+    display: none;
+    width: 34px;
+    height: 34px;
+    background: transparent;
+}
+
+.menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px auto;
+    background: #222;
+    transition: 0.3s;
+}
+
+.main {
+    min-height: calc(100vh - 72px);
+    display: grid;
+    place-items: center;
+    background: #f3f3f3;
+    font-size: 52px;
+    font-weight: 800;
+}
+
+/* mobile */
+@media (max-width : 640px) {
+    .header {
+        height: 62px;
+        padding: 0 20px;
+    }
+
+    .menu-btn {
+        display: block;
+        position: relative;
+        z-index: 20;
+    }
+
+    /* JS가 .is-open 클래스만 붙이고, 보이는 모양은 CSS가 담당한다 */
+    .nav-wrap {
+        position: fixed;
+        z-index: 10;
+        inset: 64px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 36px 24px;
+        background: #222;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        transition: 0.3s;
+    }
+
+    .nav-wrap.is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .gnb ul {
+        display: block;
+    }
+
+    .gnb a {
+        padding: 16px 4px;
+        border-bottom: 1px solid #444;
+        font-size: 20px;
+    }
+
+    .util {
+        margin-top: 30px;
+    }
+
+    /* 햄버거 버튼을 X 모양으로 */
+    .menu-btn.is-open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-btn.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-btn.is-open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}

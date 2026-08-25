@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 햄버거 메뉴</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">
+                <a href="#">LOGO</a>
+            </h1>
+            <!-- PC에서는 일반 메뉴 / 모바일에서는 전체 화면 메뉴 -->
+            <div class="nav-wrap" id="navWrap">
+                <nav class="gnb" aria-label="주요메뉴">
+                    <ul>
+                        <li><a href="#"></a>학원소개</li>
+                        <li><a href="#"></a>웹</li>
+                        <li><a href="#"></a>디자인</li>
+                        <li><a href="#"></a>영상</li>
+                        <li><a href="#"></a>편집</li>
+                        <li><a href="#"></a>수강신청</li>
+                    </ul>
+                </nav>
+                <div class="util">
+                    <a href="#">SNS</a>
+                    <a href="#">KOR</a>
+                    <button class="search-btn" type="button">검색</button>
+                </div>
+            </div>
+
+            <!-- aria-expaned는 현재 메뉴가 열렸는지 스크린리더에게 알려준다. -->
+            <!--
+             aria - 화면만으로 전달하기 어려운 요소의 의미나 현재 상태를 스크린리더 같은 보조기술에 전달하기 위한 접근성 속성
+
+             -모바일 메뉴 버튼처럼 아이콘만으로 기능을 표현하는 경우 aria-lebel을 사용해 버튼의 용도를 알 수 있도록 한다. 
+             -->
+            <button class="menu-btn" aria-controls="navWrap" aria-expanded="false" aria-label="메뉴열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+    <main class="main">CONTENTS</main>
+</body>
+
+</html>

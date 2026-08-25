@@ -1,0 +1,115 @@
+@charset "utf-8";
+@import url(reset.css);
+
+.header {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.header-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    height: 108px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 800;
+    color: #043874;
+}
+
+.gnb-list {
+    display: flex;
+}
+
+.gnb-item {
+    position: relative;
+}
+
+.gnb-item>a {
+    position: relative;
+    display: block;
+    padding: 43px 28px;
+    font-size: 18px;
+    color: #043874;
+}
+
+.gnb-item.is-open>a::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    height: 4px;
+    background: #3ac1d3;
+}
+
+.sub-menu {
+    position: absolute;
+    top: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 62px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.gnb-item.is-open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sub-menu a {
+    display: block;
+    padding: 20px 14px;
+    color: #fff;
+}
+
+.sub-menu a:hover,
+.sub-menu a:focus {
+    color: #e9ff8a;
+}
+
+.member {
+    font-weight: 700;
+    color: #043874;
+}
+
+/* 공통 2depth 배경 */
+.sub-bg {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 108px;
+    height: 62px;
+    background: linear-gradient(90deg, #38cdbb, #3db1ed);
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.header.is-open .sub-bg {
+    opacity: 1;
+    visibility: visible;
+}
+
+.main {
+    min-height: calc(100vh - 108px);
+    display: grid;
+    place-items: center;
+    background: #f5f7f8;
+    font-size: 52px;
+    font-weight: 600;
+}
