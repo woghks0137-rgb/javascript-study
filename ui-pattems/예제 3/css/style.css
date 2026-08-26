@@ -263,14 +263,14 @@ button {
 
     .mega-sub {
         display: grid;
-        grid-template-columns: 0fr;
+        grid-template-rows: 0fr;
         margin: 0;
         background: #f6f6f6;
         transition: 0.3s;
     }
 
     .mega-item.is-open .mega-sub {
-        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
     }
 
     .mega-sub ul {

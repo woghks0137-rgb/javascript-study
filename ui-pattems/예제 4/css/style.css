@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import url(reset.css);
+
+button {
+    background: transparent;
+}
+
+.location {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.location nav {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.location-list {
+    display: flex;
+}
+
+.location-list>li {
+    position: relative;
+    border-left: 1px solid #ddd;
+}
+
+.location-list>li:last-child {
+    border-right: 1px solid #ddd;
+}
+
+.home a,
+.location-btn {
+    display: block;
+    height: 48px;
+    line-height: 48px;
+}
+
+.home a {
+    width: 70px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.location-btn {
+    min-width: 180px;
+    padding: 0 42px 0 16px;
+    text-align: left;
+    position: relative;
+}
+
+.location-btn::after {
+    content: "▼";
+    position: absolute;
+    right: 16px;
+    font-size: 11px;
+    transition: 0.2s;
+}
+
+.location-item.is-open .location-btn {
+    color: #e6007e;
+}
+
+.location-item.is-open .location-btn::after {
+    transform: rotate(180deg);
+}
+
+.location-sub {
+    position: absolute;
+    z-index: 10;
+    top: 50px;
+    left: 0;
+    min-width: 190px;
+    padding: 7px;
+    border: 1px solid #eee;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: 0.2s;
+}
+
+.location-item.is-open .location-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.location-sub a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+.location-sub a:hover,
+.location-sub a:focus {
+    background: #f1f1f1;
+}
