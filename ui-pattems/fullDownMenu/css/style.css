@@ -1,0 +1,668 @@
+@charset "utf-8";
+
+button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+
+
+/* ========================================
+    HEADER
+======================================== */
+
+.header {
+    position: relative;
+
+    width: 100%;
+    height: 90px;
+
+    background: #fff;
+    border-bottom: 1px solid #eee;
+
+    /*
+        메뉴가 main 영역 위에 보이도록
+        z-index를 높게 설정합니다.
+    */
+    z-index: 100;
+}
+
+
+
+.header-inner {
+    position: relative;
+    z-index: 102;
+
+    max-width: 1400px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+/* ========================================
+    LOGO
+======================================== */
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+
+
+/* ========================================
+    PC GNB
+======================================== */
+
+.gnb {
+    height: 100%;
+}
+
+
+.gnb-list {
+    display: flex;
+
+    height: 100%;
+}
+
+
+/*
+    각각의 1depth 메뉴
+
+    여기서 중요한 부분입니다.
+
+    sub-menu를 position:absolute로 만들지 않고
+    각 메뉴 아래에 세로로 배치합니다.
+
+    대신 header 밖으로 나온 영역은
+    gnb-bg가 공통 배경 역할을 합니다.
+*/
+.gnb-item {
+    position: relative;
+
+    width: 160px;
+    height: 100%;
+}
+
+
+
+/* ========================================
+    1DEPTH
+======================================== */
+
+.gnb-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 90px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: color 0.3s;
+}
+
+
+
+/* 메뉴 하단 포인트 선 */
+.gnb-link::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    background: #111;
+
+    transform: translateX(-50%);
+
+    transition: width 0.3s;
+}
+
+
+
+/*
+    현재 마우스가 올라간 메뉴
+*/
+.gnb-item.active>.gnb-link {
+    color: #111;
+}
+
+
+.gnb-item.active>.gnb-link::after {
+    width: 80%;
+}
+
+
+
+/* ========================================
+    2DEPTH
+======================================== */
+
+.sub-menu {
+    /*
+        PC에서는 header 아래쪽으로 내려오도록
+        absolute를 사용합니다.
+    */
+
+    position: absolute;
+
+    top: 90px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 10px;
+
+    /*
+        처음에는 숨김
+    */
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    transition:
+        opacity 0.25s,
+        transform 0.25s,
+        visibility 0.25s;
+
+    /*
+        공통 배경보다 위에 보여야 합니다.
+    */
+    z-index: 103;
+}
+
+
+
+/*
+    header에 menu-open 클래스가 붙으면
+
+    모든 sub-menu를 한 번에 보여줍니다.
+*/
+
+.header.menu-open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+
+/* 2depth 링크 */
+.sub-menu a {
+    display: block;
+
+    padding: 9px 5px;
+
+    text-align: center;
+
+    font-size: 14px;
+    color: #777;
+
+    transition:
+        color 0.2s,
+        background 0.2s;
+}
+
+
+.sub-menu a:hover {
+    color: #111;
+
+    background: #f5f5f5;
+}
+
+
+
+/* ========================================
+    FULL DOWN BACKGROUND
+======================================== */
+
+/*
+    모든 2depth 아래에 깔리는
+    공통 배경입니다.
+*/
+
+.gnb-bg {
+    position: absolute;
+
+    top: 90px;
+    left: 0;
+
+    width: 100%;
+    height: 0;
+
+    background: #fff;
+
+    border-bottom: 1px solid #eee;
+
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+
+    overflow: hidden;
+
+    transition: height 0.35s ease;
+
+    z-index: 101;
+}
+
+
+
+/*
+    menu-open 상태가 되면
+    공통 배경을 아래로 펼칩니다.
+*/
+
+.header.menu-open .gnb-bg {
+    height: 230px;
+}
+
+
+
+/* ========================================
+    MOBILE BUTTON
+======================================== */
+
+.menu-btn {
+    display: none;
+
+    position: relative;
+
+    width: 32px;
+    height: 24px;
+
+    z-index: 110;
+}
+
+
+
+/* 햄버거 메뉴의 선 */
+.menu-btn span {
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: #111;
+
+    transition: 0.3s;
+}
+
+
+.menu-btn span:nth-child(1) {
+    top: 0;
+}
+
+
+.menu-btn span:nth-child(2) {
+    top: 11px;
+}
+
+
+.menu-btn span:nth-child(3) {
+    top: 22px;
+}
+
+
+
+/* ========================================
+    햄버거 → X
+======================================== */
+
+.menu-btn.active span:nth-child(1) {
+    top: 11px;
+
+    transform: rotate(45deg);
+}
+
+
+.menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-btn.active span:nth-child(3) {
+    top: 11px;
+
+    transform: rotate(-45deg);
+}
+
+
+
+/* ========================================
+    VISUAL
+======================================== */
+
+.visual {
+    min-height: calc(100vh - 90px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 40px;
+
+    background:
+        linear-gradient(135deg,
+            #ececec 0%,
+            #d7d7d7 100%);
+}
+
+
+.visual-inner {
+    width: 100%;
+    max-width: 1300px;
+
+    margin: auto;
+}
+
+
+.visual-small {
+    margin-bottom: 25px;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+
+.visual h2 {
+    max-width: 1000px;
+
+    margin-bottom: 30px;
+
+    font-size: clamp(55px, 7vw, 110px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+}
+
+
+.visual-desc {
+    margin-bottom: 40px;
+
+    color: #555;
+}
+
+
+.more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 52px;
+
+    border: 1px solid #111;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.more-btn:hover {
+    background: #111;
+    color: #fff;
+}
+
+
+
+/* =====================================================
+    TABLET / MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* ========================================
+        HEADER
+    ========================================= */
+
+    .header {
+        height: 70px;
+    }
+
+
+    .header-inner {
+        padding: 0 20px;
+    }
+
+
+
+    /* 햄버거 버튼 표시 */
+    .menu-btn {
+        display: block;
+    }
+
+
+
+    /* PC에서 사용한 Full Down 배경 제거 */
+    .gnb-bg {
+        display: none;
+    }
+
+
+
+    /* ========================================
+        MOBILE GNB
+    ========================================= */
+
+    .gnb {
+        position: fixed;
+
+        top: 70px;
+        right: -100%;
+
+        width: 100%;
+        height: calc(100vh - 70px);
+
+        padding: 20px;
+
+        background: #fff;
+
+        overflow-y: auto;
+
+        transition: right 0.4s;
+
+
+    }
+
+
+
+    /*
+        JavaScript에서 open 클래스가 붙으면
+        모바일 메뉴가 화면으로 들어옵니다.
+    */
+
+    .gnb.open {
+        right: 0;
+    }
+
+
+
+    /* ========================================
+        1DEPTH
+    ========================================= */
+
+    .gnb-list {
+        display: block;
+
+        height: auto;
+    }
+
+
+    .gnb-item {
+        width: 100%;
+        height: auto;
+
+        border-bottom: 1px solid #ddd;
+    }
+
+
+    .gnb-link {
+        height: 65px;
+
+        justify-content: space-between;
+
+        padding: 0 5px;
+
+        font-size: 21px;
+    }
+
+
+
+    /* PC에서 사용하던 밑줄 제거 */
+    .gnb-link::after {
+        display: none;
+    }
+
+
+
+    /* ========================================
+        모바일 + 아이콘
+    ========================================= */
+
+    /*
+        모든 메뉴에 sub-menu가 있으므로
+        + 아이콘을 표시합니다.
+    */
+
+    .gnb-link::before {
+        content: "+";
+
+        order: 2;
+
+        font-size: 25px;
+        font-weight: 300;
+    }
+
+
+
+    /*
+        현재 메뉴가 열렸으면
+        + → -
+    */
+
+    .gnb-item.active>.gnb-link::before {
+        content: "−";
+    }
+
+
+
+    /* ========================================
+        MOBILE 2DEPTH
+    ========================================= */
+
+    .sub-menu {
+
+        /*
+            PC absolute 해제
+        */
+
+        position: static;
+
+        width: 100%;
+
+        padding: 0;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+
+        background: #f6f6f6;
+
+
+        /*
+            처음에는 높이를 0으로 만들어
+            숨깁니다.
+        */
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: max-height 0.4s;
+    }
+
+
+
+    /*
+        현재 메뉴에 active가 붙으면
+        2depth를 펼칩니다.
+    */
+
+    .gnb-item.active .sub-menu {
+        max-height: 300px;
+    }
+
+
+
+    .sub-menu li:first-child {
+        padding-top: 10px;
+    }
+
+
+    .sub-menu li:last-child {
+        padding-bottom: 10px;
+    }
+
+
+    .sub-menu a {
+        padding: 10px 15px;
+
+        text-align: left;
+
+        font-size: 15px;
+    }
+
+
+
+    /* ========================================
+        VISUAL
+    ========================================= */
+
+    .visual {
+        min-height: calc(100vh - 70px);
+
+        padding: 50px 20px;
+    }
+
+
+    .visual h2 {
+        font-size: 52px;
+
+        letter-spacing: -3px;
+    }
+
+}
+
+
+
+/* 작은 모바일 */
+@media (max-width: 480px) {
+
+    .visual h2 {
+        font-size: 42px;
+    }
+
+}

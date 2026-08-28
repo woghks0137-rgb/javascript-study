@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부정연산자</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>부정연산자 실습</h1>
+    <button class="like-btn">좋아요</button>
+
+    <div>
+        <input type="password" class="password">
+        <button type="button" class="show-btn">비밀번호 보기</button>
+    </div>
+
+    <script>
+        const likeBtn = document.querySelector(".like-btn");
+
+        let isLiked = false;
+        likeBtn.addEventListener("click", () => {
+            isLiked = !isLiked
+            console.log(isLiked)//true
+
+            if (isLiked) {
+                likeBtn.textContent = "좋슴다"
+            } else {
+                likeBtn.textContent = "좋아요"
+            }
+        })
+
+        const passWord = document.querySelector(".password");
+        const showBtn = document.querySelector(".show-btn");
+
+        let isVisible = false;
+        //console.log(isVisible)
+
+        showBtn.addEventListener("click", () => {
+            isVisible = !isVisible;
+            console.log(isVisible)
+
+            if (isVisible) {
+                passWord.type = "text"
+                showBtn.textContent = "비밀번호 숨기기"
+            } else {
+                passWord.type = "password"
+                showBtn.textContent = "비밀번호 보기"
+            }
+        })
+    </script>
+
+</body>
+
+</html>
