@@ -1,0 +1,275 @@
+@charset "utf-8";
+@import url(reset.css);
+
+img {
+    display: block;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+    background: transparent;
+}
+
+.inner {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* ========================================
+                    Header
+======================================== */
+
+.header {
+    padding: 28px 0;
+    color: #fff;
+    background-color: #111827;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+.header p {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+/* ===================================================
+                    Main
+=====================================================*/
+.title-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.title-area h2 {
+    margin-bottom: 8px;
+    font-size: 32px;
+}
+
+.title-area p {
+    color: #777;
+}
+
+.car-count {
+    font-size: 15px;
+}
+
+.car-count strong {
+    color: #2563eb;
+}
+
+/* ========================================
+   필터
+======================================== */
+.filter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    background-color: #fff;
+    transition: 0.2s;
+}
+
+.filter-btn:hover {
+    border-color: #222;
+}
+
+.filter-btn.active {
+    color: #fff;
+    border-color: #111827;
+    background-color: #111827;
+}
+
+/* ========================================
+   차량 목록
+======================================== */
+
+.car-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+
+
+/* ========================================
+   차량 카드
+======================================== */
+
+.car-card {
+    overflow: hidden;
+
+    border: 1px solid #eee;
+
+    border-radius: 16px;
+
+    background-color: #fff;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.car-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* 이미지 영역 */
+.car-image {
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 3 / 2;
+
+    background-color: #eee;
+}
+
+
+.car-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+
+/* 대여 가능 상태 */
+.status {
+    position: absolute;
+
+    top: 15px;
+
+    left: 15px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    background-color: #fff;
+}
+
+
+.status.unavailable {
+    color: #999;
+}
+
+
+
+/* ========================================
+   차량 정보
+======================================== */
+.car-info {
+    padding: 20px;
+}
+
+.car-brand {
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #777;
+}
+
+.car-name {
+    margin-bottom: 14px;
+    font-size: 21px;
+}
+
+
+/* 차량 세부 정보 */
+.car-option {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.car-option span {
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #555;
+    background-color: #f3f4f6;
+}
+
+/* 평점 */
+.car-rating {
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+/* 가격 영역 */
+.car-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+
+.car-price {
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+}
+
+.car-price strong {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* 예약 버튼 */
+.reserve-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #2563eb;
+}
+
+.reserve-btn:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+/* ========================================
+   메시지
+======================================== */
+.message {
+    grid-column: 1 / -1;
+    padding: 70px 0;
+    text-align: center;
+    color: #777;
+}

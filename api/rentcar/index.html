@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>렌트카</title>
+    <link rel="stylesheet" href="css/rentcar.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="inner header-inner">
+            <h1 class="logo">RENT CAR</h1>
+            <p>나에게 맞는 차량을 찾아보세요.</p>
+        </div>
+    </header>
+    <!-- =====================================
+                        main
+    ========================================-->
+    <main class="main">
+        <div class="inner">
+            <div class="title-area">
+                <div>
+                    <h2>렌트카</h2>
+                    <p>원하는 차량을 선택하세요.</p>
+                </div>
+
+                <!-- 차량 갯수 -->
+                <p class="car-count">
+                    총 <strong id="carCount">0</strong>대
+                </p>
+            </div>
+            <!-- 차량 필터 -->
+            <div class="filter">
+                <button type="button" class="filter-btn active" data-category="전체">전체</button>
+                <button type="button" class="filter-btn " data-category="경차">경차</button>
+                <button type="button" class="filter-btn " data-category="준중형">준중형</button>
+                <button type="button" class="filter-btn " data-category="중형">중형</button>
+                <button type="button" class="filter-btn " data-category="SUV">SUV</button>
+                <button type="button" class="filter-btn " data-category="전기차">전기차</button>
+                <button type="button" class="filter-btn " data-category="수입차">수입차</button>
+            </div>
+
+            <!-- 차량목록 JS에서 목록이 만들어짐 -->
+            <div id="carList" class="car-list"></div>
+        </div>
+    </main>
+</body>
+
+</html>

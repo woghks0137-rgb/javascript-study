@@ -1,0 +1,58 @@
+{
+    "rooms": [
+        {
+            "id": "1",
+            "title": "제주 바다가 보이는 감성 숙소",
+            "location": "제주도 제주시",
+            "price": 120000,
+            "rating": 4.9,
+            "category": "제주",
+            "image": "https://picsum.photos/seed/jeju01/600/400"
+        },
+        {
+            "id": "2",
+            "title": "서울 한강뷰 모던 하우스",
+            "location": "서울 마포구",
+            "price": 98000,
+            "rating": 4.8,
+            "category": "서울",
+            "image": "https://picsum.photos/seed/seoul01/600/400"
+        },
+        {
+            "id": "3",
+            "title": "강릉 바다 앞 독채 숙소",
+            "location": "강원도 강릉시",
+            "price": 150000,
+            "rating": 4.95,
+            "category": "강릉",
+            "image": "https://picsum.photos/seed/gangneung01/600/400"
+        },
+        {
+            "id": "4",
+            "title": "제주 조용한 숲속 스테이",
+            "location": "제주도 서귀포시",
+            "price": 135000,
+            "rating": 4.87,
+            "category": "제주",
+            "image": "https://picsum.photos/seed/jeju02/600/400"
+        },
+        {
+            "id": "5",
+            "title": "서울 도심 속 감성 스튜디오",
+            "location": "서울 종로구",
+            "price": 89000,
+            "rating": 4.76,
+            "category": "서울",
+            "image": "https://picsum.photos/seed/seoul02/600/400"
+        },
+        {
+            "id": "6",
+            "title": "부산 오션뷰 테라스 하우스",
+            "location": "부산광역시 해운대구",
+            "price": 175000,
+            "rating": 4.92,
+            "category": "부산",
+            "image": "https://picsum.photos/seed/busan01/600/400"
+        }
+    ]
+}

@@ -1,0 +1,266 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+@import url(reset.css);
+
+:root {
+    --bg: #efefef;
+    --color-content: #585858;
+    --color-point: #0965a2;
+}
+
+body {
+    background: var(--bg);
+    color: var(--color-content);
+}
+
+/* header */
+header {
+    width: 400px;
+    height: 100%;
+    background: linear-gradient(45deg, aqua, var(--color-point));
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+header h1 {
+    /* font : style(생략가능) weight(생략가능) font-size(필수) line-height(생략가능) font-family(필수) */
+    font: 700 50px/1 "Orbitron", "sans-serif";
+    color: #fff;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-150%);
+}
+
+header h1::before {
+    content: 'MY DAILY MEMORIES';
+    display: block;
+    font: 14px/1 "Orbitron", "sans-serif";
+    color: #fff;
+    letter-spacing: 2px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 90px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+header h1::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: #fff;
+    margin-top: 20px;
+}
+
+header ul {
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul li {
+    margin-right: 10px;
+}
+
+header ul li a {
+    color: #fff;
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+header ul li a>span {
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+main {
+    margin-left: 400px;
+    padding: 20px;
+}
+
+main ul {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+main ul li>a {
+    display: block;
+    width: 100px;
+    height: 36px;
+    font: 600 14px/36px "Orbitron", "sans-serif";
+    color: #b0b0b0;
+    letter-spacing: 1px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+main ul li.on>a {
+    background: linear-gradient(127deg, #28cefc, var(--color-point));
+    color: #fff;
+}
+
+main section {
+    width: 100%;
+}
+
+main section::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+main section article {
+    width: 20%;
+    float: left;
+    padding: 12px;
+}
+
+main section article div {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 14px;
+}
+
+main section article img {
+    width: 100%;
+}
+
+main section article h2 {
+    margin-top: 15px;
+    font: 600 15px/1 "Orbitron", "sans-serif";
+    color: #444;
+    margin-bottom: 10px;
+}
+
+main section article p {
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--color-content);
+    margin-bottom: 15px;
+}
+
+/* 1599px 이하 */
+@media screen and (max-width : 1599px) {
+    header {
+        width: 350px;
+    }
+
+    main {
+        margin-left: 350px;
+    }
+
+    main section article {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width : 1199px) {
+    header {
+        width: 100%;
+        height: 80px;
+        position: relative;
+    }
+
+    header h1 {
+        font: bold 24px/1 "Orbitron", "sans-serif";
+        transform: translateY(-50%);
+    }
+
+    header h1::before,
+    header h1::after {
+        display: none;
+    }
+
+    header ul {
+        left: 84%;
+        bottom: 25px;
+    }
+
+    header ul li {
+        margin-right: 20px;
+    }
+
+    header ul li a {
+        font-size: 20px;
+    }
+
+    header ul li a>span {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    main section article {
+        width: 25%;
+    }
+}
+
+/* 900 이하 */
+@media (max-width : 899px) {
+    header ul {
+        left: 80%;
+    }
+
+    main section article {
+        width: 33.3333%;
+    }
+}
+
+/* 680 이하 */
+@media (max-width : 679px) {
+    header ul {
+        left: 70%;
+    }
+
+    main section article {
+        width: 50%;
+    }
+}
+
+@media (max-width : 539px) {
+    header ul {
+        display: none;
+    }
+
+    main ul {
+        margin-right: 0;
+        padding: 0 14px;
+    }
+
+    main ul li {
+        margin-right: 2%;
+        width: 32%;
+    }
+
+    main ul li:nth-child(1) {
+        margin-right: 0;
+    }
+
+    main section article {
+        width: 100%;
+    }
+}

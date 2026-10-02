@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            padding: 100px;
+        }
+
+        header,
+        footer,
+        ul {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header,
+        footer {
+            padding: 30px;
+            background: steelblue;
+            text-align: center;
+        }
+
+        ul {
+            padding: 80px;
+            background: slateblue;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        ul li {
+            padding: 30px;
+            background: #ddd;
+            float: right;
+        }
+
+        .clear::before,
+        .clear::after {
+            content: '';
+            clear: both;
+            display: block;
+
+        }
+
+        div {
+            max-width: 1000px;
+            margin: 100px auto;
+            background: skyblue;
+        }
+
+        h1 {
+            float: left;
+        }
+
+        p {
+            float: right;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>header</header>
+    <h1>text</h1>
+    <p class="clear">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi obcaecati ullam quae quisquam,
+        aliquam velit
+        consequatur voluptatum tempore harum architecto cum. Doloremque asperiores itaque vero magnam, vel
+        reprehenderit eligendi sequi.</p>
+    <footer>footer</footer>
+</body>
+
+</html>
